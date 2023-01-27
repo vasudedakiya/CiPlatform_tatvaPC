@@ -1,0 +1,35 @@
+﻿@using CIPlatform.DataModels
+@model List<CmsPage>
+
+ <div class="container-lg">
+
+        <div class="row p-5">
+            <span class="fs-2">Privacy and Cookies Policy</span>
+        </div>
+        <div class="row ps-5" id="sideBar">
+
+            <div class="col-lg-3 col-md-3 d-none d-lg-block">
+                <div id="list-example" class="list-group sticky-top pt-3">
+                    @foreach(var item in Model){
+                    <a href="#div_@item.CmsPageId" class="list-group-item list-group-item-action" style="border: none;">@item.Title
+                        <i class="bi bi-chevron-right float-end"></i></a>
+                    <hr style="margin-top: 0px; margin-bottom: 0px;">
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-9 col-lg-8 col-sm-12 pe-md-5">
+                <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true"
+                    class="scrollspy-example" tabindex="0">
+                @foreach(var data in Model)
+                {
+                     <div id="div_@data.CmsPageId" class="temp">
+                          <p class="fs-3">@data.Title</p>
+                          <p>@data.Description</p>
+                     </div>
+                }
+                </div>
+            </div>
+        </div>
+
+</div>

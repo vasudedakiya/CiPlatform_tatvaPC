@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Mission</span>
+<hr style="margin-top: 6px;">
+
+<div style="margin-bottom: 70px;">
+    <span class="float-end">
+        <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                data-target="#SubmitNewMission" data-url="@Url.Action("CreateMission")">
+            <i class="bi bi-plus"></i>
+            <span class="text-wrap">Add</span>
+        </button>
+    </span>
+</div>
+
+<div id="PlaceHolderHere"></div>
+
+<span class="text-danger">@TempData["ErrorMes"]</span>
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>Mission ID</th>
+            <th>Mission Title</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.missions)
+        {
+            <tr>
+                <td>@item.MissionId</td>
+                <td>@item.Title</td>
+                <td class="text-success fw-bold">
+                    <button class="btn @(@item.Status==1 ?"text-success":"text-danger") fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeMissionStatus", "Admin" ,new {id = @item.MissionId})' } ">
+                        @(@item.Status==1 ? "Active":"Inactive")
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddCarousel" data-url="@Url.Action($"EditMission?id={@item.MissionId}")">
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteMission", "Admin" ,new {id = @item.MissionId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+
+
+
+
+    </tbody>
+</table>

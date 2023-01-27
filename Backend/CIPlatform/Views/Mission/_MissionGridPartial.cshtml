@@ -1,0 +1,174 @@
+﻿@using CIPlatform.DataModels;
+
+const { Collapse } = require("../../wwwroot/lib/bootstrap/dist/js/bootstrap");
+@model List<MissionCardModel>
+
+<script>
+        $(function () {
+
+        var PlaceHolderElement = $('#PlaceHolderHere');
+        $('button[data-toggle="ajax-modal"]').click(function (event) {
+            console.log("from grid");
+
+            var url = $(this).data('url');
+            var decodeUrl = decodeURIComponent(url);
+            console.log(url);
+            $.get(decodeUrl).done(function (data) {
+                PlaceHolderElement.html(data);
+                PlaceHolderElement.find('.modal').modal('show');
+            })
+        })
+
+        PlaceHolderElement.on('click', '[data-bs-save="modal"]', function (event) {
+
+            var formData = new FormData($('#modalForm').get(0));
+            var form = $(this).parents('.modal').find('form');
+            var actionUrl = form.attr('action');
+            $.ajax({
+                url: "/Mission/" + actionUrl,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function (data) {
+                    PlaceHolderElement.find('.modal').modal('hide');
+                }
+
+            })
+            PlaceHolderElement.find('.modal').modal('hide');
+        })
+
+    })
+</script>
+<div class="row mb-5">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+
+            <div class="card cardWidth shadow h-100">
+                <img src="@Url.Content(@item.CardImg)" class="home-card-img" alt="...">
+                <div class="card-body">
+                    <div class="cardTitleAction">
+                        <span class="text-wrap btn btn-sm rounded-pill cardTitleSubAction"
+                          style="background-color: white; color: #757575; ">
+                            @item.theme
+
+                        </span>
+                    </div>
+                    <button type="button" style="color: white; background-color: black; "
+                        class="btn btn-sm btn-outline-dark float-end rounded-pill cardLocation">
+                        <i class="bi bi-geo-alt"></i>
+                        <span class="text-wrap">
+                            @item.country
+                        </span>
+                    </button>
+                    @if (item.favMission == 0)
+                    {
+                        <button type="button" onclick="favMission(@item.mission.MissionId,1)" style="color: white; background-color: black; "
+                        class="btn btn-sm btn-outline-dark float-end rounded-pill cardLike">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="button" onclick="favMission(@item.mission.MissionId,0)" style="color: white; background-color: black; "
+                        class="btn btn-sm btn-outline-dark float-end rounded-pill cardLike">
+                            <i class="bi bi-heart-fill text-danger"></i>
+                        </button>
+                    }
+
+
+
+                    <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" style="color: white; background-color: black;"
+                        class="btn btn-sm btn-outline-dark float-end rounded-pill cardAddPeople" data-url="@Url.Action("SuggestCoWorker", "Mission" , new{id = @item.mission.MissionId})">
+                        <i class="bi bi-person-plus"></i>
+                    </button>
+                    <div id="PlaceHolderHere"></div>
+
+                    <h5 class="card-title cardTitle">@item.mission.Title</h5>
+                    <p class="card-text cardText">@item.mission.ShortDescription</p>
+                    <div class="mt-1 mb-4">
+                        <span class="float-start">@item.mission.OrganizationName</span>
+                        <span class="float-end">
+                            <div class="Stars" style="--rating: @item.avgRateing;" aria-label="Rating of this product is @item.avgRateing out of 5."></div>
+                        </span>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="cardAction">
+                            <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                              style="background-color: white; color: #757575; ">
+                                @if (@item.mission.StartDate != null)
+                                {
+                                    <span> From @Convert.ToDateTime(item.mission.StartDate).ToString("dd/MM/yyyy") until @Convert.ToDateTime(item.mission.EndDate).ToString("dd/MM/yyyy")</span>
+                                }
+                                else
+                                {
+                                    <span>Ongoing Opportunity</span>
+                                }
+                            </span>
+                        </div>
+                        <hr style=" z-index: -12; margin-left: -4.3%; margin-right: -4.3%;">
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-6 text-wrap">
+                            <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>@item.seatsLeft</span>
+                            <br style="margin: 0px;">
+                            <span class="cardSmallText ms-4">Seats left</span>
+                        </div>
+                        @if (item.mission.Deadline != null)
+                        {
+                            <div class="col-6 text-wrap">
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>@Convert.ToDateTime(item.mission.Deadline).ToString("dd/MM/yyyy")</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Deadline</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                            <div class="col-5 text-wrap d-inline">
+                                <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
+                                    <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                                  style="width: @item.progressBar%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                                    </span>
+                                </span>
+                                <span class="cardSmallText ms-5">
+                                        @((int)(@item.progressBar * @item.goalMission.GoalValue)/100)
+                                     Achieved</span>
+                            </div>
+                        }
+                    </div>
+                    <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
+
+                    <div class="cardAction mb-1">
+                        @if (item.mission.Deadline > DateTime.Now && item.seatsLeft > 0)
+                        {
+                            <button type="button" onclick="ApplyMission(@item.mission.MissionId)" class="btn btn-outline-warning rounded-pill" style="margin-left: auto; margin-right: auto;">
+                                <span class="text-wrap">Apply</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        }
+                        else if(item.mission.MissionType == 2 && item.seatsLeft > 0 && item.progressBar < 100)
+                        {
+                            <button type="button" onclick="ApplyMission(@item.mission.MissionId)" class="btn btn-outline-warning rounded-pill" style="margin-left: auto; margin-right: auto;">
+                                <span class="text-wrap">Apply</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        }
+
+                        <button type="button" onclick="return location.href=' @Url.Action("MisionDetail","Mission",new {id=@item.mission.MissionId}) '" class="btn btn-outline-warning rounded-pill" style="margin-left: auto; margin-right: auto;">
+                            <span class="text-wrap">Detail</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    }
+
+</div>

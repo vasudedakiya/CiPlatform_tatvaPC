@@ -1,0 +1,141 @@
+﻿@using CIPlatform.Models
+@model List<StoryListModel>
+
+
+@{
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<style>
+    .parent {
+        position: relative;
+    }
+
+    .child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+
+<div class="parent">
+    <img src="~/assets/Grow-Trees-On-the-path-to-environment-sustainability-login.png" alt="Snow"
+         style="width:100%; height: 350px; object-fit: cover; object-position: 100% 33%; filter: brightness(40%);">
+
+    <div class="child" style="color: white;">
+        <p class="text-center" style="font-size: 1vw;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Pariatur
+            impedit
+            error
+            perferendis explicabo
+            odit nemo doloremque nisi repudiandae molestiae expedita?
+        </p>
+        <div class="cardAction mb-1">
+            <button type="button" onclick="return location.href=' @Url.Action("CreateStory","Story")'" class="btn btn-outline-light rounded-pill mt-2"
+                    style="margin-left: auto; margin-right: auto;">
+                <a class="text-wrap link-dark text-light">Share your story</a>
+                <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-lg mt-5 mb-5">
+    <!-- #region Story Cards -->
+
+
+    <div id="missionGrid">
+        @{
+            Html.RenderPartial("_StoryListPartial", Model);
+        }
+    </div>
+
+
+    <div class="mt-5 mb-5">
+
+        @if (pager.TotalPages > 0)
+        {
+            <ul class="pagination justify-content-center">
+
+                @if (pager.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Story" asp-action="StoryList" asp-route-pg="1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Story" asp-action="StoryList" asp-route-pg="@(pager.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
+
+                @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                {
+                    <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                        <a class="page-link" asp-controller="Story" asp-action="StoryList" asp-route-pg="@pge">@pge</a>
+                    </li>
+                }
+
+                @if (pager.CurrentPage < pager.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Story" asp-action="StoryList" asp-route-pg="@(pager.CurrentPage + 1)">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Story" asp-action="StoryList" asp-route-pg="@(pager.TotalPages)">Last</a>
+                    </li>
+                }
+            </ul>
+        }
+
+        @*<nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+            <li class="page-item">
+            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Previous">
+            <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+            </a>
+            </li>
+            <li class="page-item">
+            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Previous">
+            <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+            </a>
+            </li>
+            <li class="page-item me-1">
+            <a class="page-link btn btn-outline-warning text-gray" href="#">1</a>
+            </li>
+            <li class="page-item me-1">
+            <a class="page-link btn btn-outline-warning text-gray" href="#">2</a>
+            </li>
+            <li class="page-item me-1">
+            <a class="page-link btn btn-outline-warning text-gray" href="#">3</a>
+            </li>
+            <li class="page-item me-1">
+            <a class="page-link btn btn-outline-warning text-gray" href="#">4</a>
+            </li>
+            <li class="page-item me-1">
+            <a class="page-link btn btn-outline-warning text-gray" href="#">5</a>
+            </li>
+            <li class="page-item">
+            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Next">
+            <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+            </a>
+            </li>
+            <li class="page-item">
+            <a class="page-link btn btn-outline-warning me-1 text-gray" href="#" aria-label="Next">
+            <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+            </a>
+            </li>
+            </ul>
+            </nav>*@
+    </div>
+
+</div>

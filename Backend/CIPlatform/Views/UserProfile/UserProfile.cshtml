@@ -1,0 +1,191 @@
+﻿@using CIPlatform.Models
+@model UserProfileModel
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+           $("#ddlCountry").change(function () {
+               ddlCity =  $('#ddlCity');
+               $.ajax({
+               url: '/Admin/GetCity',
+               type:'POST',
+               dataType:'json',
+               data:{id: $(this).val()},
+               success:function(d){
+
+                   ddlCity.empty();
+                   ddlCity.append($("<option></option>").val('').html('Select City'));
+                   $.each(d, function (i, city) {
+                       ddlCity.append($("<option></option>").val(city.value).html(city.text));
+                   });
+               },
+               error:function(){
+                   alert('Error');
+               }
+               });
+           });
+       });
+</script>
+
+<div class="container-lg">
+    <div id="PlaceHolderHere"></div>
+    <form method="post" action="UserProfile" enctype="multipart/form-data">
+        <div class="row p-5">
+            <!-- #region Sidebar -->
+            <div class="col-lg-2 col-md-12 col-sm-12 p-3 h-50 border text-center">
+                <img src="@Url.Content(Model.user.Avatar)" width="100" height="100"
+                     class="d-inline-block m-auto rounded-circle d-none d-lg-block" alt="">
+                <p class="fs-4 mt-md-3 d-none d-lg-block">
+                    @Model.user.FirstName &nbsp;@Model.user.LastName
+                </p>
+                <input type="file" name="userImg" class="form-control" />
+                <span class="d-block d-lg-none d-flex">
+                    <img src="@Url.Content(Model.user.Avatar)" width="80" height="80" class=" rounded-circle " alt="">
+                    <p class="fs-4 m-auto">
+                        @Model.user.FirstName &nbsp;@Model.user.LastName
+                    </p>
+                </span>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12 ps-4">
+
+                <div>
+                    <span class="fs-3 border-2 border-bottom border-dark">Basic Information</span>
+                    <hr style="margin-top: -2px;">
+                    <div class="row">
+                        <input asp-for="user.UserId" hidden />
+                        <input asp-for="user.CreatedAt" hidden />
+                        <input asp-for="user.Status" hidden />
+                        <input asp-for="user.Password" hidden />
+                        <input asp-for="user.Email" hidden />
+                        <input asp-for="user.Avatar" hidden />
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Name*</Label>
+                            <input type="text" asp-for="user.FirstName" class="form-control mt-1" placeholder="Enter your name">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Surname*</Label>
+                            <input type="text" asp-for="user.LastName" class="form-control mt-1" placeholder="Enter your surname">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Mobile No</Label>
+                            <input type="number" asp-for="user.PhoneNumber" class="form-control mt-1" placeholder="Enter your Phone Number">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Employee ID</Label>
+                            <input type="text" asp-for="user.EmployeeId" class="form-control mt-1" placeholder="Enter your employee id">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Title</Label>
+                            <input type="text" asp-for="user.Title" class="form-control mt-1" placeholder="Enter your title">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>Department</Label>
+                            <input type="text" asp-for="user.Department" class="form-control mt-1" placeholder="Enter your Department">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <Label>My Profile*</Label>
+                            <br>
+                            <textarea asp-for="user.ProfileText" class="form-control" placeholder="Enter your comment"
+                                      class="w-100 h-100"></textarea>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <Label>Why I volunteer?</Label>
+                            <br>
+                            <textarea asp-for="user.WhyIVolunteer" class="form-control" placeholder="Enter your comment"
+                                      class="w-100 h-100 mt-1"></textarea>
+                        </div>
+                        <div class="col-12 mt-4 mb-3">
+                            <button type="button" class="btn btn-outline-dark rounded-pill" data-target="#ChangePass"
+                                    data-toggle="ajax-modal" data-url="@Url.Action("ChangePassword")">
+                                Change Password
+                            </button>
+                            <span class="text-danger">@TempData["ErrorMes"]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <span class="fs-3 border-2 border-bottom border-dark">Address Information</span>
+                    <hr style="margin-top: -1px;">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <label>Country</label>
+                            <select class="form-select" id="ddlCountry" asp-for="@Model.user.CountryId" required="" asp-items="@Model.Countrys" aria-label="Default select example">
+                                <option selected>Select Country</option>
+                            </select>
+                            <span asp-validation-for="user.CountryId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <label for="">City</label>
+                            <select class="form-select" id="ddlCity" asp-for="user.CityId" required="" asp-items="Model.Citys" aria-label="Default select example">
+                            </select>
+                            <span asp-validation-for="user.CityId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <span class="fs-3 border-2 border-bottom border-dark">Professional Information</span>
+                    <hr style="margin-top: -2px;">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <label>Availability</label>
+                            <select class="form-select" asp-for="user.Availability" required="" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">daily</option>
+                                <option value="2">weekly</option>
+                                <option value="3">week-end</option>
+                                <option value="4">monthly</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mt-3">
+                            <Label>LinkdIn</Label>
+                            <input type="text" asp-for="user.LinkedInUrl" class="form-control mt-1" placeholder="Enter linkdIn URL">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <span class="fs-3 border-2 border-bottom border-dark">My Skills</span>
+                    <hr style="margin-top: -1px;">
+                    <div class="row mt-4">
+                        <div class="col-12 border">
+                            @foreach (var item in Model.UserSkills)
+                            {
+                                <span> @item </span>
+
+                                <br>
+                            }
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <button type="button" class="btn btn-outline-dark col-md-2 col-sm-12 rounded-pill" data-target="#addSkills"
+                                data-toggle="ajax-modal" data-url="@Url.Action("AddUserSkill")">
+                            Add Skills
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="mt-5 float-end">
+                    <button type="submit" class="btn btn-outline-warning px-5 rounded-pill">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer>
+    <hr>
+    <div class="container-lg">
+        <div class="row mt-5 mb-4 ms-3 ">
+            <span>
+                <button class="link-dark border-0" data-target="#contactUs"
+                   data-toggle="ajax-modal" data-url="@Url.Action("ContactUs")">Contact Us</button>
+                <a asp-controller="Policy" asp-action="Home" class="link-dark">Privacy Policy</a>
+            </span>
+
+        </div>
+    </div>
+</footer>

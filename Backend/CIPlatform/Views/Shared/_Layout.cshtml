@@ -1,0 +1,218 @@
+﻿@{
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CIPlatform</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CIPlatform.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/VirtualSelect.css" asp-append-version="true" />
+    <style>
+        .vscomp-toggle-button {
+            align-items: center;
+            background-color: #fff;
+            cursor: pointer;
+            display: flex;
+            padding: 7px 30px 7px 10px;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    @if (controllerName != "Login")
+    {
+        <header>
+            <div class="container-lg">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <span class="navbar-toggler" style="border: 0px;">
+                            <form class="form-horizontal ">
+                                <input type="search" class="form-control customshadow"
+                                   style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                                   placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                            </form>
+                        </span>
+                        <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
+                            <img src="@Url.Content(Context.Session.GetString("Img"))" width="30" height="30" class="d-inline-block rounded-circle"
+                             alt="">
+                        </span>
+
+                        <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="bi bi-sliders2-vertical"></i>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item me-md-5">
+                                    @if (controllerName == "Story")
+                                    {
+                                        <a class="nav-link text-dark" asp-controller="Mission" asp-action="MissionListing">Mission</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link text-dark" asp-controller="Story" asp-action="StoryList">Stories</a>
+                                    }
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark" role="button" asp-controller="Policy" asp-action="Policy" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Policy <i class="bi bi-chevron-down"></i>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <a class="navbar-brand d-flex" href="#">
+
+                                <div class="dropdown custom-dropdown dropstart me-4">
+                                    <a class="link-dark nav-link dropdown-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-bell"></i>
+                                        <span class="number">5</span>
+                                    </a>
+
+                                    <div class="dropdown-menu " style="z-index: 200;">
+
+                                        <div class="container">
+                                            <div class="title-wrap row">
+                                                <i class="bi bi-gear col-4"></i>
+                                                <h3 class="title col-4 text-center">Notifications</h3>
+                                                <a href="#" class="small col-4 text-end">Clear all</a>
+                                            </div>
+                                        </div>
+
+                                        <ul class="custom-notifications">
+                                            @TempData["Notification"];
+                                            <li class="unread">
+                                                <a href="#" class="d-flex dropdown-item">
+                                                    <div class="img mr-3">
+                                                        <img src="../assets/volunteer1.png" alt="Image" class="rounded-circle"
+                                                         width="30" height="30">
+                                                    </div>
+                                                    <p class="text">
+                                                        <strong>Claudia Gideon</strong> marked the task done a day ago
+                                                    </p>
+                                                </a>
+                                            </li>
+
+                                            <li class="unread">
+                                                <a href="#" class="d-flex dropdown-item">
+                                                    <div class="img mr-3">
+                                                        <img src="../assets/volunteer2.png" alt="Image" class="rounded-circle"
+                                                         width="30" height="30">
+                                                    </div>
+                                                    <p class="text">
+                                                        <strong>Alex Stafford</strong> marked the task done a day ago
+                                                    </p>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#" class="d-flex dropdown-item">
+                                                    <div class="img mr-3">
+                                                        <img src="../assets/volunteer3.png" alt="Image" class="rounded-circle"
+                                                         width="30" height="30">
+                                                    </div>
+                                                    <p class="text">
+                                                        <strong>Devin Richards</strong> mentioned you in her comment on Invoices
+                                                        2 days ago
+                                                    </p>
+                                                </a>
+                                            </li>
+
+                                            <li class="">
+                                                <a href="#" class="d-flex dropdown-item">
+                                                    <div class="img mr-3">
+                                                        <img src="../assets/volunteer4.png" alt="Image" class="rounded-circle"
+                                                         width="30" height="30">
+                                                    </div>
+                                                    <p class="text">
+                                                        <strong>Alex Stafford</strong> marked the task done a day ago
+                                                    </p>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#" class="d-flex dropdown-item">
+                                                    <div class="img mr-3">
+                                                        <img src="../assets/volunteer5.png" alt="Image"
+                                                         class="rounded-circle d-none d-lg-block" width="30" height="30">
+                                                    </div>
+                                                    <p class="text">
+                                                        <strong>Devin Richards</strong> mentioned you in her comment on Invoices
+                                                        2 days ago
+                                                    </p>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                                <img src="@Url.Content(Context.Session.GetString("Img"))" width="30" height="30"
+                                 class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
+                                <span class="dropdown my-2 my-sm-0">
+                                    <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                        @Context.Session.GetString("UserName")
+                                        <i class="bi bi-chevron-down"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                                        <li><a class="dropdown-item text-dark" asp-controller="Mission" asp-action="MissionListing">Dashbord</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-controller="UserProfile" asp-action="UserProfile">My Account</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-action="TimeSheet" asp-controller="TimeSheet">Volunteering TimeSheet</a></li>
+                                        <li><a class="dropdown-item text-dark" asp-action="Logout" asp-controller="Mission">Log out</a></li>
+                                    </ul>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <hr style="margin: 0px;">
+        </header>
+    }
+
+
+    <div style="margin:0px;">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    @if (controllerName != "Login" && controllerName != "UserProfile")
+    {
+        <footer>
+            <hr>
+            <div class="container-lg">
+                <div class="row mt-5 mb-4 ms-3 ">
+                    <a asp-controller="Policy" asp-action="Policy" class="link-dark">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+    }
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

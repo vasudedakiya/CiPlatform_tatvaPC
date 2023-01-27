@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Mission Application</span>
+<hr style="margin-top: 6px;" class="mb-5">
+
+
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>Mission ID</th>
+            <th>Mission Title</th>
+            <th>User Id</th>
+            <th>User Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.missionApplications)
+        {
+            <tr>
+                <td>@item.MissionId</td>
+                <td>@item.Mission.Title</td>
+                <td>@item.UserId</td>
+                <td>@item.User.FirstName &nbsp; @item.User.LastName</td>
+                <td>
+                    <a class="btn" asp-controller="Admin" asp-action="AcceptMissionApplication" asp-route-id=@item.MissionApplicationId><i class="bi bi-check-circle text-success"></i></a>
+                    <button class="btn" onclick=" if (confirm('Are You want to delete application?')) { return location.href=' @Url.Action("DeclineMissionApplication", "Admin" ,new {id = @item.MissionApplicationId})' } ">
+                        <i class="bi bi-x-circle text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

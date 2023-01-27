@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Skill</span>
+<hr style="margin-top: 6px;">
+
+<div style="margin-bottom: 70px;">
+    <span class="float-end">
+        <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                data-target="#AddSkill" data-url="@Url.Action("CreateSkill")">
+            <i class="bi bi-plus"></i>
+            <span class="text-wrap">Add Skill</span>
+        </button>
+    </span>
+</div>
+
+<div id="PlaceHolderHere"></div>
+
+<span class="text-danger">@TempData["ErrorMes"]</span>
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>ID</th>
+            <th>Skill</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.skills)
+        {
+            <tr>
+                <td>@item.SkillId</td>
+                <td>@item.SkillName</td>
+                <td class="text-success fw-bold">
+                    <button class="btn @(@item.Status==1 ?"text-success":"text-danger") fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeSkillStatus", "Admin" ,new {id = @item.SkillId})' } ">
+                        @(@item.Status==1 ? "Active":"Inactive")
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddSkill" data-url="@Url.Action($"EditSkill?id={@item.SkillId}")">
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteSkill", "Admin" ,new {id = @item.SkillId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

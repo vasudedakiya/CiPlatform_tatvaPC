@@ -1,0 +1,132 @@
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\appsettings.Development.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\appsettings.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.staticwebassets.runtime.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.exe
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.deps.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.runtimeconfig.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.pdb
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Humanizer.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.AssemblyReference.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.GeneratedMSBuildEditorConfig.editorconfig
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.AssemblyInfoInputs.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.AssemblyInfo.cs
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.CoreCompileInputs.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.MvcApplicationPartsAssemblyInfo.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.RazorAssemblyInfo.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.RazorAssemblyInfo.cs
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\staticwebassets.build.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\staticwebassets.development.json
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\bundle\CIPlatform.styles.css
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\projectbundle\CIPlatform.bundle.scp.css
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.CopyComplete
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\refint\CIPlatform.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.pdb
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.genruntimeconfig.cache
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\obj\Debug\net6.0\ref\CIPlatform.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\MailKit.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\MimeKit.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\NETCore.MailKit.dll
+D:\Traning\Project\CI PLateform\Backend\CIPlatform\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\appsettings.Development.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\appsettings.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.staticwebassets.runtime.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.exe
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.deps.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.runtimeconfig.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\ref\CIPlatform.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\CIPlatform.pdb
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Humanizer.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\MailKit.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\MimeKit.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\NETCore.MailKit.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.AssemblyReference.cache
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.AssemblyInfoInputs.cache
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.AssemblyInfo.cs
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.CoreCompileInputs.cache
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.RazorAssemblyInfo.cache
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.RazorAssemblyInfo.cs
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\staticwebassets.build.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\staticwebassets.development.json
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\bundle\CIPlatform.styles.css
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\scopedcss\projectbundle\CIPlatform.bundle.scp.css
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.csproj.CopyComplete
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\ref\CIPlatform.dll
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.pdb
+D:\Projects\CI-Platform-master\Backend\CIPlatform\obj\Debug\net6.0\CIPlatform.genruntimeconfig.cache

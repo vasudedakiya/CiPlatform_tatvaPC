@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Story Detail</title>
+    <style>
+        .data {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- #region Main Header -->
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <span class="navbar-toggler" style="border: 0px;">
+                    <form class="form-horizontal ">
+                        <input type="search" class="form-control customshadow"
+                            style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                            placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                    </form>
+                </span>
+                <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
+                    <img src="./assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
+                        alt="">
+                </span>
+
+                <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-sliders2-vertical"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-md-5 ms-md-5">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Explore <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Top Themes <i
+                                            class="bi bi-chevron-right float-end"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Education</a></li>
+                                        <li><a class="dropdown-item" href="#">Children</a></li>
+                                        <li><a class="dropdown-item" href="#">Helth</a></li>
+                                        <li><a class="dropdown-item" href="#">Animals</a></li>
+                                        <li><a class="dropdown-item" href="#">Nutritions</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Top Country <i
+                                            class="bi bi-chevron-right float-end"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">India</a></li>
+                                        <li><a class="dropdown-item" href="#">China</a></li>
+                                        <li><a class="dropdown-item" href="#">USA</a></li>
+                                        <li><a class="dropdown-item" href="#">Australia</a></li>
+                                        <li><a class="dropdown-item" href="#">Japan</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Top Organisation <i
+                                            class="bi bi-chevron-right"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">WHO</a></li>
+                                        <li><a class="dropdown-item" href="#">APHA</a></li>
+                                        <li><a class="dropdown-item" href="#">TCC</a></li>
+                                        <li><a class="dropdown-item" href="#">NIH</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                <li><a class="dropdown-item" href="#">Top Favourite</a></li>
+                                <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                <li><a class="dropdown-item" href="#">Random</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item me-md-5">
+                            <a class="nav-link" href="#">Stories</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Policy <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Volunteering</a></li>
+                                <li><a class="dropdown-item" href="#">Sponsored</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="navbar-brand d-flex" href="#">
+                        <img src="./assets/volunteer1.png" width="30" height="30"
+                            class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
+                        <span class="dropdown my-2 my-sm-0">
+                            <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Evan Donohue
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><a class="dropdown-item" href="#">Dashbord</a></li>
+                                <li><a class="dropdown-item" href="#">My Account</a></li>
+                                <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                            </ul>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr style="margin: 0px;">
+    <!-- endregion -->
+
+    <!-- #region Mission Header -->
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg py-0">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block p-2">
+                        <input type="search" class="form-control customshadow"
+                            style="width: 50vw; border: 0px; font-family:Arial, FontAwesome;"
+                            placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                    </form>
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                        <li class="nav-item dropdown me-lg-4 border-lg-left border-sm-left-0 p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Country <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">India</a></li>
+                                <li><a class="dropdown-item" href="#">China</a></li>
+                                <li><a class="dropdown-item" href="#">USA</a></li>
+                                <li><a class="dropdown-item" href="#">Australia</a></li>
+                                <li><a class="dropdown-item" href="#">Japan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown me-md-4 border-sm-left-0 border-lg-left p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                City <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
+                                <li><a class="dropdown-item" href="#">Surat</a></li>
+                                <li><a class="dropdown-item" href="#">Tokyo</a></li>
+                                <li><a class="dropdown-item" href="#">Amsadam</a></li>
+                                <li><a class="dropdown-item" href="#">Hydrabad</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown me-md-4 border-lg-left border-sm-left-0 p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Theme <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Education</a></li>
+                                <li><a class="dropdown-item" href="#">Children</a></li>
+                                <li><a class="dropdown-item" href="#">Helth</a></li>
+                                <li><a class="dropdown-item" href="#">Animals</a></li>
+                                <li><a class="dropdown-item" href="#">Nutritions</a></li>
+                            </ul>
+                        </li>
+                        <li
+                            class="nav-item dropdown me-md-4 border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+                            <a class="nav-link" href="#" role="button"
+                                style="font-family:Arial, Helvetica, sans-serif, Bootstrap-icons;"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Skills &#xF282;
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Anthropology</a></li>
+                                <li><a class="dropdown-item" href="#">Archeolgy</a></li>
+                                <li><a class="dropdown-item" href="#">Astronomy</a></li>
+                                <li><a class="dropdown-item" href="#">Computer Science</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr class="d-none d-lg-block" style="margin: 0px;">
+    <!-- endregion Mission Header end -->
+
+    <!-- #region Container -->
+    <div class="container-lg">
+        <!-- #region Galary & Main Content -->
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                    <div class="row shadow-5">
+                        <div class="col-12 mb-1">
+                            <div class="lightbox">
+                                <img src="./assets/Gallery_6.png" alt="Gallery image 1"
+                                    class="ecommerce-gallery-main-img active w-100" />
+                            </div>
+                        </div>
+                        <div class="col-2 mt-1" style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_1.png" data-mdb-img="./assets/Gallery_1.png"
+                                alt="Gallery image 1" class="active w-100" />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_2.png" data-mdb-img="./assets/Gallery_2.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_3.png" data-mdb-img="./assets/Gallery_3.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_4.png" data-mdb-img="./assets/Gallery_4.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_5.png" data-mdb-img="./assets/Gallery_5.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_6.png" data-mdb-img="./assets/Gallery_6.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 p-5 pt-3">
+                <div class="row">
+                    <div class="float-start mt-3">
+                        <img src="./assets/volunteer2.png" width="80" height="80"
+                            class="d-inline-block rounded-circle ms-2" alt="">
+                        <br>
+                        <small>Andrew Johnson</small>
+                    </div>
+
+                    <div class="d-flex flex-row-reverse" style="margin-top: -31px;">
+                        <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+                            <i class="bi bi-eye"></i>
+                            <span class="text-wrap">12,000 Views</span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                    <p>
+                        Ut enim ad minim veniam. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam. Sed ut perspiciatis unde omnis iste
+                        natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+                        ab illo inventore.
+                    </p>
+                </div>
+
+
+                <div class="row mt-5">
+                    <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                        <button type="button" class="btn btn-outline-dark rounded-pill w-100">
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span class="text-wrap">Recommended tp a Co-Worker</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                        <button type="button" class="btn btn-outline-warning rounded-pill w-100">
+                            <span class="text-wrap">Open Mission </span>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- endregion Galary & Main Content -->
+
+        <!-- #region Sub-content -->
+        <div class="mt-5">
+            <p class="fs-4">Introduction</p>
+            <hr>
+            <div class="mt-4">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est
+                    laborum.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </div>
+
+            <div class="mt-5">
+                <p>We use these technologies for a number of purposes, such as:</p>
+
+                <ul class="w-75">
+                    <li class="mt-2">
+                        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                    </li>
+
+                    <li class="mt-2">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+                        officia deserunt mollitia animi.
+                    </li>
+
+                    <li class="mt-2">
+                        On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
+                        and demoralized
+                    </li>
+
+                    <li class="mt-2">
+                        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain.
+                    </li>
+                    <li class="mt-2">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mt-5">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+
+        <!-- endregion Sub-content -->
+
+    </div>
+
+    <!-- endregion Container -->
+
+    <!-- #region Footer -->
+    <hr>
+    <div class="container-lg">
+        <div class="row mt-5 mb-4 ms-3 ">
+            <a href="#" class="link-dark">Privacy Policy</a>
+        </div>
+    </div>
+    <!-- endregion Footer -->
+
+    <!-- #region Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- endregion Scripts -->
+
+</body>
+
+</html>

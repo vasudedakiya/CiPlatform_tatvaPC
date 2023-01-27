@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Volunteers Mission</title>
+    <style>
+        .data {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- #region Main Header -->
+    <div class="container-lg">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <span class="navbar-toggler" style="border: 0px;">
+                    <form class="form-horizontal ">
+                        <input type="search" class="form-control customshadow"
+                            style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                            placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                    </form>
+                </span>
+                <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
+                    <img src="./assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
+                        alt="">
+                </span>
+
+                <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-sliders2-vertical"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown me-md-5 ms-md-5">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Explore <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Top Themes <i
+                                            class="bi bi-chevron-right float-end"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Education</a></li>
+                                        <li><a class="dropdown-item" href="#">Children</a></li>
+                                        <li><a class="dropdown-item" href="#">Helth</a></li>
+                                        <li><a class="dropdown-item" href="#">Animals</a></li>
+                                        <li><a class="dropdown-item" href="#">Nutritions</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Top Country <i
+                                            class="bi bi-chevron-right float-end"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">India</a></li>
+                                        <li><a class="dropdown-item" href="#">China</a></li>
+                                        <li><a class="dropdown-item" href="#">USA</a></li>
+                                        <li><a class="dropdown-item" href="#">Australia</a></li>
+                                        <li><a class="dropdown-item" href="#">Japan</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Top Organisation <i
+                                            class="bi bi-chevron-right"></i></a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">WHO</a></li>
+                                        <li><a class="dropdown-item" href="#">APHA</a></li>
+                                        <li><a class="dropdown-item" href="#">TCC</a></li>
+                                        <li><a class="dropdown-item" href="#">NIH</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Most Ranked</a></li>
+                                <li><a class="dropdown-item" href="#">Top Favourite</a></li>
+                                <li><a class="dropdown-item" href="#">Recommended</a></li>
+                                <li><a class="dropdown-item" href="#">Random</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item me-md-5">
+                            <a class="nav-link" href="#">Stories</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Policy <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Volunteering</a></li>
+                                <li><a class="dropdown-item" href="#">Sponsored</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class="navbar-brand d-flex" href="#">
+                        <img src="./assets/volunteer1.png" width="30" height="30"
+                            class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
+                        <span class="dropdown my-2 my-sm-0">
+                            <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Evan Donohue
+                                <i class="bi bi-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                                <li><a class="dropdown-item" href="#">Dashbord</a></li>
+                                <li><a class="dropdown-item" href="#">My Account</a></li>
+                                <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                <li><a class="dropdown-item" href="#">Log out</a></li>
+                            </ul>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr style="margin: 0px;">
+    <!-- endregion -->
+
+    <!--  #region Mission Header -->
+    <!-- <div class="container-lg">
+        <nav class="navbar navbar-expand-lg py-0">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block p-2">
+                        <input type="search" class="form-control customshadow"
+                            style="width: 50vw; border: 0px; font-family:Arial, FontAwesome;"
+                            placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                    </form>
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                        <li class="nav-item dropdown me-lg-4 border-lg-left border-sm-left-0 p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Country <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">India</a></li>
+                                <li><a class="dropdown-item" href="#">China</a></li>
+                                <li><a class="dropdown-item" href="#">USA</a></li>
+                                <li><a class="dropdown-item" href="#">Australia</a></li>
+                                <li><a class="dropdown-item" href="#">Japan</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown me-md-4 border-sm-left-0 border-lg-left p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                City <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Ahmdabad</a></li>
+                                <li><a class="dropdown-item" href="#">Surat</a></li>
+                                <li><a class="dropdown-item" href="#">Tokyo</a></li>
+                                <li><a class="dropdown-item" href="#">Amsadam</a></li>
+                                <li><a class="dropdown-item" href="#">Hydrabad</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown me-md-4 border-lg-left border-sm-left-0 p-2">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Theme <i class="bi bi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Education</a></li>
+                                <li><a class="dropdown-item" href="#">Children</a></li>
+                                <li><a class="dropdown-item" href="#">Helth</a></li>
+                                <li><a class="dropdown-item" href="#">Animals</a></li>
+                                <li><a class="dropdown-item" href="#">Nutritions</a></li>
+                            </ul>
+                        </li>
+                        <li
+                            class="nav-item dropdown me-md-4 border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+                            <a class="nav-link" href="#" role="button"
+                                style="font-family:Arial, Helvetica, sans-serif, Bootstrap-icons;"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Skills &#xF282;
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Anthropology</a></li>
+                                <li><a class="dropdown-item" href="#">Archeolgy</a></li>
+                                <li><a class="dropdown-item" href="#">Astronomy</a></li>
+                                <li><a class="dropdown-item" href="#">Computer Science</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr class="d-none d-lg-block" style="margin: 0px;"> -->
+    <!-- endregion Mission Header end -->
+
+    <!-- #region Container -->
+    <div class="container-lg">
+        <!-- #region Galary & Main Content -->
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="ecommerce-gallery" data-mdb-zoom-effect="true" data-mdb-auto-height="true">
+                    <div class="row shadow-5">
+                        <div class="col-12 mb-1">
+                            <div class="lightbox">
+                                <img src="./assets/Gallery_1.png" alt="Gallery image 1"
+                                    class="ecommerce-gallery-main-img active w-100" />
+                            </div>
+                        </div>
+                        <div class="col-2 mt-1" style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_1.png" data-mdb-img="./assets/Gallery_1.png"
+                                alt="Gallery image 1" class="active w-100" />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_2.png" data-mdb-img="./assets/Gallery_2.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_3.png" data-mdb-img="./assets/Gallery_3.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_4.png" data-mdb-img="./assets/Gallery_4.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_5.png" data-mdb-img="./assets/Gallery_5.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+                        <div class="col-2 mt-1 " style="padding-left: 2px;padding-right: 2px;">
+                            <img src="./assets/Gallery_6.png" data-mdb-img="./assets/Gallery_6.png"
+                                alt="Gallery image 1" class="  w-100 " />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 p-md-5 p-sm-2 pt-3">
+
+                <h2 style="font-weight: 300; padding-right: 5%;">CSR initiative stands for Coffee & Farmer Equity</h2>
+                <p class="mt-3 pe-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore...</p>
+                <br>
+                <div>
+                    <div class="cardAction">
+                        <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                            style="background-color: white; color: #757575; ">
+                            Plant 10,000 Trees</span>
+                    </div>
+                    <hr style=" z-index: -12;">
+                </div>
+
+                <div class="row m-5 mt-4 mb-4">
+                    <div class="col-6 text-wrap">
+                        <span><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                    </div>
+                    <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                    <div class="col-5 text-wrap d-inline">
+                        <span class="progress" style="height: 10px; margin-top: 8px;">
+                            <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                                style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-6 cardSmallText" style="padding-left: 50px;">Shets left
+                    </div>
+                    <div class="col-6 cardSmallText" style="padding-left: 50px;">8000 achieved</div>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mt-2">
+                        <button type="button" class="btn btn-outline-dark rounded-pill w-100">
+                            <i class="bi bi-suit-heart"></i>
+                            <span class="text-wrap">Add to Favourite</span>
+                        </button>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mt-2">
+                        <button type="button" class="btn btn-outline-dark rounded-pill w-100">
+                            <i class="bi bi-person-plus-fill"></i>
+                            <span class="text-wrap">Recommended to a Co-Worker</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="cardAction mt-2" style="margin-bottom:-25px ;">
+                        <span class="text-wrap subAction pe-2 ps-2" style="background-color: white;">
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                        </span>
+                    </div>
+                    <hr style=" z-index: -12;">
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                        <div class="border p-2">
+                            <span>
+                                <i class="bi bi-geo-alt fs-3"></i>
+                                <br><br>
+                                <small class="fw-light">city</small>
+                                <br>
+                                London
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                        <div class="border p-2">
+                            <span>
+                                <i class="bi bi-globe fs-3"></i>
+                                <br><br>
+                                <small class="fw-light">Theme</small>
+                                <br>
+                                Environment
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                        <div class="border p-2">
+                            <span>
+                                <i class="bi bi-calendar3 fs-3"></i>
+                                <br>
+                                <small class="fw-light">Date</small>
+                                <br>
+                                Ongoing Opportunity
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mt-1">
+                        <div class="border p-2">
+                            <span>
+                                <i class="bi bi-people fs-3"></i>
+                                <br><br>
+                                <small class="fw-light">Organisation</small>
+                                <br>
+                                CSE Network
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cardAction mt-3">
+                    <button type="button" class="btn btn-outline-warning rounded-pill"
+                        style="margin-left: auto; margin-right: auto;">
+                        <span class="text-wrap">Apply Now </span>
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <!-- endregion Galary & Main Content -->
+
+        <!-- #region Sub Content -->
+
+        <div class="row mt-5">
+
+            <div class="col-md-8 col-sm-12 mb-5 pe-5">
+
+                <ul class="nav mb-4" id="myBtnContainer">
+                    <button class="nav-link bg-white border-0 border-bottom border-dark border-2 active xyz"
+                        onclick="filterSelection('mis')">Mission</button>
+                    <button class="nav-link bg-white border-0" onclick="filterSelection('org')">Organisation</button>
+                    <button class="nav-link bg-white border-0" onclick="filterSelection('spo')">Sponsored</button>
+                    <button class="nav-link bg-white border-0" onclick="filterSelection('com')">Comments</button>
+                </ul>
+                <hr style="margin-top: -25px;">
+
+                <div class="data mis">
+                    <p class="fs-4">Introduction</p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat.
+                    </p>
+                    <p>
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                        mollit
+                        anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+                <div class="data mis">
+                    <p class="fs-4">Challenge</p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        quae unde, perspiciatis officia error autem vel. Eaque labore saepe sed illum ad, corporis
+                        aliquid eum id quo illo fugit eius iste laborum praesentium corrupti molestias, eos hic
+                        delectus. Etarchitectotempore sit ipsa? Facilis reprehenderit dolor cum deserunt voluptates
+                        laborum autem, maioresdebitis.Sequi hic repellendus eos ratione voluptatibus cum rerum dicta
+                        maxime voluptatem doloremqueblanditiis,voluptates eveniet, atque ut
+                    </p>
+                </div>
+
+
+                <div class="data org">
+                    <p class="fs-4">Organisation</p>
+
+                    <p>
+                        tenetur deserunt magnam? Possimus ullam expedita optio et ipsa saepe consectetur maxime itaque
+                        qui quidem quibusdam, repellendus eos nostrum, quis magni cum odit sequi corrupti, quo numquam
+                        vel sunt praesentium. Odio modi quos sequi dicta est hic, distinctio ea. Earum ipsum quia fuga
+                        doloribus cupiditate sunt dolor, adipisci alias amet sit temporibus quos ullam neque assumenda,
+                        sint aiurenumquam quas? Aspernatur quidem consequuntur minus
+                    </p>
+                </div>
+
+                <div class="data org">
+                    <p class="fs-4">Organisation - info</p>
+
+                    <p>
+                        fugit. Nemo deserunt blanditiis sequi, magni atque, similique, aspernatur maxime asperiores
+                        voluptatibus autem temporibus iure consequuntur rem laborum fuga eius! Qui pariatur asperiores
+                        debitis suscipit facere quas velit facilis fugit autem itaque voluptatum, adipisci quidem.
+                        Praesentium possimusconsectetur dolorem iste, aliquam optio blanditiis saepe nemo laboriosam
+                        obcaecati dicta eiusvoluptates nobis accusamus deleniti sit natus officia libero,.
+                    </p>
+                </div>
+
+                <div class="data spo">
+                    <p class="fs-4">Sponsored</p>
+
+                    <p>
+                        nobis accusamus deleniti sit natus officia libero, error sed rerum nulla iusto quisquam
+                        perferendis! Ratione sapiente culpa, exercitationem quidem facere consequatur. Doloribus autem
+                        eligendi unde! Beatae quam repudiandae voluptatem sint necessitatibus eligendi. Dolorum dolorem
+                        rem quasi. Eaque undequod fuga accusamus saepe placeat debitis
+                    </p>
+                </div>
+
+                <div class="data spo">
+                    <p class="fs-4">Sponsored - info</p>
+
+                    <p>
+                        adipisci alias amet sit temporibus quos ullam neque assumenda, sint a iure numquam quas?
+                        Aspernatur quidem consequuntur minus ducimus, perspiciatis sunt reprehenderit dolorum, vitae
+                        quam quaerat omnis velit? Cum voluptatum itaque in repellendus dolorum maxime
+                        quae? Magnamdolorescum, modi voluptates reprehenderit obcaecati
+                    </p>
+                </div>
+                <div class="data com">
+                    <p class="fs-4">Comment</p>
+
+                    <p>
+                        ptatem sint necessitatibus eligendi. Dolorum dolorem rem quasi. Eaque unde quod fuga accusamus
+                        saepe placeat debitis velit corrupti illum deserunt animi harum, rerum iusto inventore
+                        quos officiis iste laborum minus ipsam aperiam distinctio exercitationem, reprehenderit,
+                        possimus quibusdam? Alias autem inventore, aliquid quas quis eius ratione doloremque
+                        voluptatibus, est optio iure rerum nihil aspernatur delectus sed quae saepe dolore in
+                        distinctio? Voluptatem culpa numquam aliquam dignissimos. Quod neque doloremque ipsa? Quo,
+                        harum. Magni
+                    </p>
+                </div>
+
+                <div class="data com">
+                    <p class="fs-4">Comment - info</p>
+
+                    <div class="p-3" style="background-color:#f7f7f7;">
+                        <div class="row mb-3 p-3 ms-0 me-0" style="background-color:white;">
+                            <div class="col-lg-1 col-md-2 col-sm-2 col-12 p-0">
+                                <img src="./assets/volunteer1.png" class="rounded-circle" height="45px">
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-12 p-0">
+                                <p class="mb-1" style="font-size:14px ;">Sarah Santillan</p>
+                                <p style="font-size:10px ;">Monday, October 21,2019, 4:57 PM</p>
+                                <p class="mb-0" style="font-size:12px ;">Nice mission great opportunity for peoples
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mb-3 p-3 ms-0 me-0" style="background-color:white;">
+                            <div class="col-lg-1 col-md-2 col-sm-2 col-12 p-0">
+                                <img src="./assets/volunteer2.png" class="rounded-circle" height="45px">
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-12 p-0">
+                                <p class="mb-1" style="font-size:14px ;">Charles Vigue</p>
+                                <p style="font-size:10px ;">Monday, October 21,2019, 12:23 PM</p>
+                                <p class="mb-0" style="font-size:12px ;">I like this mission</p>
+                            </div>
+                        </div>
+                        <div class="row p-3 ms-0 me-0" style="background-color:white;">
+                            <div class="col-lg-1 col-md-2 col-sm-2 col-12 p-0">
+                                <img src="./assets/volunteer3.png" class="rounded-circle" height="45px">
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-12 p-0">
+                                <p class="mb-1" style="font-size:14px ;">Linda Richards</p>
+                                <p style="font-size:10px ;">Monday, October 21,2019, 8:12 AM</p>
+                                <p class="mb-0" style="font-size:12px ;">Good opertunity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="fs-4">Document</p>
+                    <span>
+                        <button type="button" class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2">
+                            <i class="bi bi-filetype-pdf"></i>
+                            <span class="text-wrap">lorem-ipsum.pdf</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2">
+                            <i class="bi bi-filetype-doc"></i>
+                            <span class="text-wrap">at_vero_eos_accusamus.doc</span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2">
+                            <i class="bi bi-filetype-xls"></i>
+                            <span class="text-wrap">important_doc.xls</span>
+                        </button>
+                    </span>
+
+                </div>
+
+            </div>
+            <div class="col-md-4 col-sm-12">
+
+                <div class="border p-3">
+                    <span class="fs-4 border-bottom border-dark border-2 pb-2">Information</span>
+                    <hr style="margin-top: 6px;">
+                    <div class="row">
+                        <span class="col-3"><label>Skills</label></span>
+                        <span class="col-9">Cool, Easy going, Math, Computer</span>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <span class="col-3"><label>Days</label></span>
+                        <span class="col-9">Weekend only</span>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <span class="col-3"><label>Rating</label></span>
+                        <span class="col-9"><i class="bi bi-star-fill text-warning "></i>
+                            <i class="bi bi-star-fill text-warning "></i>
+                            <i class="bi bi-star-fill text-warning "></i>
+                            <i class="bi bi-star-fill text-warning "></i>
+                            <i class="bi bi-star-fill text-warning "></i>
+                            <small>(by 125 volunteers)</small></span>
+                    </div>
+                </div>
+
+                <div class="border mt-4 pb-0">
+                    <span class="px-3">
+                        <span class="fs-4 border-bottom border-dark border-2 pb-2">Recent volunteers</span>
+                        <hr style="margin: 6px 15px 0px 15px;">
+                    </span>
+
+                    <div class="row px-3">
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer1.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Andrew Johnson</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer2.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Charles Vigue</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer3.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Kathryn Roberts</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer4.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Estella Fowles</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer5.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Rose Lewis</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer6.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Raymond Pabon</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer7.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Travis Steen</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer8.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Sarah Santillan</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                            <img src="./assets/volunteer9.png" width="60" height="60"
+                                class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>Linda Richards</small>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <div class="row" style="margin: -17px 0px 0px 0px;">
+                    <div class="col-1 border mt-3 p-2"><i class="bi bi-chevron-left"></i>
+                    </div>
+                    <div class="col-10 border mt-3 p-2 text-center">1 - 8 of 25 Recent Volunteers</div>
+                    <div class="col-1 border mt-3 p-2"><i class="bi bi-chevron-right"></i></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- endregion Sub Content -->
+
+        <!-- #region Related Mission -->
+        <hr style="margin-top: 10%;">
+        <div class="text-center mt-5 mb-4">
+            <span class="fs-3">Related Mission</span>
+        </div>
+
+        <div class="row mb-5 ">
+
+            <div class="col-sm-12 col-md-4 mb-4">
+                <div class="card cardWidth shadow h-100">
+                    <img src="./assets/card_4.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="cardTitleAction">
+                            <span class="text-wrap btn btn-sm rounded-pill cardTitleSubAction"
+                                style="background-color: white; color: #757575; ">
+                                Environment</span>
+                        </div>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLocation">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="text-wrap">London</span>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLike">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardAddPeople">
+                            <i class="bi bi-person-plus"></i>
+                        </button>
+                        <h5 class="card-title cardTitle">CSR initiative stands for Coffee and Farmer Equity</h5>
+                        <p class="card-text cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore...</p>
+                        <div class="mt-1 mb-4">
+                            <span class="float-start">CSE Network</span>
+                            <span class="float-end">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                            </span>
+                        </div>
+                        <br>
+                        <div>
+                            <div class="cardAction">
+                                <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                                    style="background-color: white; color: #757575; ">
+                                    Ongoing Opportunity</span>
+                            </div>
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-6 text-wrap">
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
+                            </div>
+                            <div class="col-6 text-wrap">
+                                <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>03/10/2022</span>
+                                <br style="padding: 0px;">
+                                <span class="cardSmallText ms-5">Dedline</span>
+                            </div>
+                        </div>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
+
+                        <div class="cardAction mb-1">
+                            <button type="button" class="btn btn-outline-warning rounded-pill"
+                                style="margin-left: auto; margin-right: auto;">
+                                <span class="text-wrap">Apply</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-4">
+                <div class="card  cardWidth shadow h-100">
+                    <img src="./assets/card_5.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="cardTitleAction">
+                            <span class="text-wrap btn btn-sm rounded-pill cardTitleSubAction"
+                                style="background-color: white; color: #757575; ">
+                                Animals</span>
+                        </div>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLocation">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="text-wrap">Cape Town</span>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLike">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardAddPeople">
+                            <i class="bi bi-person-plus"></i>
+                        </button>
+                        <h5 class="card-title cardTitle">Animal welfare & save birds campaign</h5>
+                        <p class="card-text cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore...</p>
+                        <div class="mt-1 mb-4">
+                            <span class="float-start">JR Foundation</span>
+                            <span class="float-end">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                            </span>
+                        </div>
+                        <br>
+                        <div>
+                            <div class="cardAction">
+                                <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                                    style="background-color: white; color: #757575; ">
+                                    Plant 10,000 Trees</span>
+                            </div>
+                            <hr style=" z-index: -12;  margin-left: -4.3%; margin-right: -4.3%;">
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-5 text-wrap">
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
+                            </div>
+
+                            <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                            <div class="col-5 text-wrap d-inline">
+                                <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
+                                    <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                                        style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                                    </span>
+                                </span>
+                                <span class="cardSmallText ms-5">Dedline</span>
+                            </div>
+                        </div>
+
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
+
+                        <div class="cardAction mb-1">
+                            <button type="button" class="btn btn-outline-warning rounded-pill"
+                                style="margin-left: auto; margin-right: auto;">
+                                <span class="text-wrap">Apply</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4 mb-4">
+                <div class="card  cardWidth shadow h-100">
+                    <img src="./assets/card_6.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="cardTitleAction">
+                            <span class="text-wrap btn btn-sm rounded-pill cardTitleSubAction"
+                                style="background-color: white; color: #757575; ">
+                                Health</span>
+                        </div>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLocation">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="text-wrap">Paris</span>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardLike">
+                            <i class="bi bi-suit-heart"></i>
+                        </button>
+                        <button type="button" style="color: white; background-color: black;   "
+                            class="btn btn-sm btn-outline-dark float-end rounded-pill cardAddPeople">
+                            <i class="bi bi-person-plus"></i>
+                        </button>
+                        <h5 class="card-title cardTitle">Plantation and Afforestation programme</h5>
+                        <p class="card-text cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore...</p>
+                        <div class="mt-1 mb-4">
+                            <span class="float-start">Amaze Doctors</span>
+                            <span class="float-end">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                                <i class="bi bi-star-fill text-black-50 "></i>
+                            </span>
+                        </div>
+                        <br>
+                        <div>
+                            <div class="cardAction">
+                                <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                                    style="background-color: white; color: #757575; ">
+                                    Plant 10,000 Trees</span>
+                            </div>
+                            <hr style=" z-index: -12; margin-left: -4.3%; margin-right: -4.3%;">
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-5 text-wrap">
+                                <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>10</span>
+                                <br style="margin: 0px;">
+                                <span class="cardSmallText ms-4">Seats left</span>
+                            </div>
+
+                            <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                            <div class="col-5 text-wrap d-inline">
+                                <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
+                                    <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                                        style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                                    </span>
+                                </span>
+                                <span class="cardSmallText ms-5">Dedline</span>
+                            </div>
+                        </div>
+                        <hr style=" margin-left: -4.3%; margin-right: -4.3%;">
+
+                        <div class="cardAction mb-1">
+                            <button type="button" class="btn btn-outline-warning rounded-pill"
+                                style="margin-left: auto; margin-right: auto;">
+                                <span class="text-wrap">Apply</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- endregion Related Mission -->
+    </div>
+    <!-- endregion Container -->
+
+    <!-- #region Footer -->
+    <hr>
+    <div class="container">
+        <div class="row mt-5 mb-4 ms-3 ">
+            <a href="#" class="link-dark">Privacy Policy</a>
+        </div>
+    </div>
+    <!-- endregion Footer -->
+
+    <!-- #region Scripts -->
+
+    <script type="text/javascript">
+        filterSelection("mis")
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("data");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("nav-link");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active xyz");
+                for (var j = 0; j < current.length; j++) {
+                    current[j].className = current[j].className.replace(" border-bottom border-dark border-2 active xyz", " ");
+                }
+                this.className += " border-bottom border-dark border-2 active xyz";
+            });
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- endregion Scripts -->
+
+</body>
+
+</html>

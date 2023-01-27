@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Story</span>
+<hr style="margin-top: 6px;" class="mb-5">
+
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>Story ID</th>
+            <th>Story Title</th>
+            <th>Mission</th>
+            <th>User Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model.stories)
+        {
+            <tr>
+                <td>@item.StoryId</td>
+                <td>@item.Title</td>
+                <td>@item.Mission.Title</td>
+                <td>@item.User.FirstName &nbsp; @item.User.LastName</td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are You want to delete application?')) { return location.href=' @Url.Action("DeleteStory", "Admin" ,new {id = @item.StoryId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                        <span class="text-wrap">view</span>
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

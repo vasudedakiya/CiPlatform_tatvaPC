@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <!-- bootstrap5 dataTables css cdn -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.css">
+
+    <title>Mission List</title>
+
+    <style>
+        .uploadImg::before {
+            content: "Upload image here";
+        }
+
+        .uploadDoc::before {
+            content: "Drag and drop resume here or click*";
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid" style="padding-left: 0px;">
+        <div class="row flex-nowrap">
+
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebarBG ps-lg-4">
+                <div
+                    class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
+
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start pt-4"
+                        id="menu">
+                        <li class="nav-item w-100">
+                            <a href="./user.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-person-fill mr-3"></i> <span class="ms-1 d-none d-sm-inline">User</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./cmsPolicy.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-file-earmark-text-fill mr-3"></i> <span
+                                    class="ms-1 d-none d-sm-inline">CMS
+                                    Pagea</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./mission.html" class="nav-link align-middle  text-light">
+                                <i class="bi bi-bullseye mr-3"></i><span class="ms-1 d-none d-sm-inline">Mission</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./missionTheme.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-columns-gap mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Theme</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./missionSkill.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-tools mr-3"></i> <span class="ms-1 d-none d-sm-inline">Mission
+                                    Skills</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./missionApplication.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-files mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Application</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./storyList.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-journal-text mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Story List</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./storyApplication.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-journal-text mr-3"></i><span class="ms-1 d-none d-sm-inline">
+                                    Story Application</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item w-100">
+                            <a href="./bannerManagement.html" class="nav-link align-middle text-light">
+                                <i class="bi bi-box mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Banner Managment</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <div class="col py-4 px-5">
+                <span class="fs-2 border-bottom border-dark border-2 pb-2 ">Mission</span>
+                <hr style="margin-top: 6px;">
+
+                <div style="margin-bottom: 70px;">
+                    <span class="float-end">
+                        <button type="button" class="btn btn-outline-warning rounded-pill" data-bs-toggle="modal"
+                            data-bs-target="#SubmitNewMission"><i class="bi bi-plus"></i>
+                            <span class="text-wrap">Add</span></button>
+                    </span>
+                </div>
+
+                <div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add new Mission</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="">Country</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="">City</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Title</label>
+                                            <input type="text" name="" class="form-control"
+                                                placeholder="Enter Mission Title" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Description</label>
+                                            <textarea name="" class="form-control" placeholder="Enter your message"
+                                                id="" cols="30" rows="4"></textarea>
+                                        </div>
+
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Type</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Organisation Name</label>
+                                            <input type="text" name="" class="form-control"
+                                                placeholder="Enter mission organisation name" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Organisation Detail</label>
+                                            <textarea name="" class="form-control" placeholder="Enter your message"
+                                                id="" cols="30" rows="4"></textarea>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Start Date</label>
+                                            <input type="date" name="" class="form-control"
+                                                placeholder="Select start date" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">End Date</label>
+                                            <input type="date" name="" class="form-control"
+                                                placeholder="Select end date" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Total seats</label>
+                                            <input type="number" name="" class="form-control"
+                                                placeholder="Enter total seats" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission registration deadline</label>
+                                            <input type="date" name="" class="form-control"
+                                                placeholder="Enter mission registration deadline" id="">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Theme</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Skills</label>
+                                            <div>
+                                                <select id="skillSelect" class="rounded" multiple name="native-select"
+                                                    style="width: 100% !important;" placeholder="Select Skills"
+                                                    data-search="true" data-silent-initial-value-set="true">
+                                                    <option value="1">Anthropology</option>
+                                                    <option value="2">Archeology</option>
+                                                    <option value="3">Astronomy</option>
+                                                    <option value="3">Computer Science</option>
+                                                    <option value="3">Environmental Science</option>
+                                                    <option value="3">History</option>
+                                                    <option value="3">Library Sciences</option>
+                                                    <option value="3">Mathematics</option>
+                                                    <option value="3">Music Theory</option>
+                                                    <option value="3">Research</option>
+                                                    <option value="3">Administrative Support</option>
+                                                    <option value="3">Customer Service</option>
+                                                    <option value="3">Data Entry</option>
+                                                    <option value="3">Executive Admin</option>
+                                                    <option value="3">Office Management</option>
+                                                    <option value="3">Office Reception</option>
+                                                    <option value="3">Program Management</option>
+                                                    <option value="3">Transactions</option>
+                                                    <option value="3">Agronomy</option>
+                                                    <option value="3">Animal Care / Handling</option>
+                                                    <option value="3">Animal Therapy</option>
+                                                    <option value="3">Aquarium Maintenance</option>
+                                                    <option value="3">Botany</option>
+                                                    <option value="3">Environmental Education</option>
+                                                    <option value="3">Environmental Policy</option>
+                                                    <option value="3">Farming</option>
+                                                </select>
+                                            </div>
+                                            <script
+                                                src="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.js"></script>
+                                            <script>
+                                                VirtualSelect.init({
+                                                    ele: '#skillSelect'
+                                                });
+                                            </script>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Images</label>
+                                            <div class="form-group files uploadImg">
+                                                <input type="file" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <label for="">Mission Documents</label>
+                                            <div class="form-group files uploadDoc">
+                                                <input type="file" name="" id="">
+                                            </div>
+                                            <label class="fs-6">Allowed file types: PDF, Doc</label>
+                                        </div>
+                                        <div class="col-12 mt-3 mb-5">
+                                            <label for="">Mission Availability</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Open this select menu</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary rounded-pill"
+                                    data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-outline-warning rounded-pill">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table id="datatable" class="table table-borderless">
+                    <thead class="table-light text-primary">
+                        <tr>
+                            <th>Mission ID</th>
+                            <th>Mission Title</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jhon doe do xyz abc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>smae ahfd asbhe shsau</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Jhon doe4yasbyudiz</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Jhon doe5redixweb</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Jhon doe do xyz abc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>smae ahfd asbhe shsau</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Jhon doe4yasbyudiz</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Jhon doe5redixweb</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Jhon doe do xyz abc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>smae ahfd asbhe shsau</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Jhon doe3dude oahhwfna ytcdayc</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>Jhon doe4yasbyudiz</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>Jhon doe5redixweb</td>
+
+                            <td class="text-success fw-bold">Active</td>
+                            <td><i class="bi bi-trash text-danger"></i></td>
+                            <td><button type="button" class="btn btn-outline-secondary rounded-pill w-100">
+                                    <span class="text-wrap">view</span>
+                                </button></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- #region Scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- endregion Scripts -->
+
+</body>
+
+</html>

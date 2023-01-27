@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .thumbnail-container {
+            display: flex;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #fullsize-image-container {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #fullsize-image {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Small thumbnail images -->
+    <div class="thumbnail-container">
+        <img src="https://picsum.photos/200/300" class="thumbnail" data-fullsize="https://picsum.photos/200/300">
+        <img src="https://picsum.photos/200/400" class="thumbnail" data-fullsize="https://picsum.photos/200/400">
+        <img src="https://picsum.photos/200/600" class="thumbnail" data-fullsize="https://picsum.photos/200/600">
+    </div>
+
+    <!-- Fullsize image container -->
+    <div id="fullsize-image-container">
+        <img src="" id="fullsize-image">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Show fullsize image when thumbnail is clicked
+            $('.thumbnail').click(function () {
+                var fullsizeImageUrl = $(this).data('fullsize');
+                $('#fullsize-image').attr('src', fullsizeImageUrl);
+
+            });
+
+            // Hide fullsize image when clicked
+            $('#fullsize-image-container').click(function () {
+                $(this).fadeOut();
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

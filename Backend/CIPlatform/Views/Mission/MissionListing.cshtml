@@ -1,0 +1,291 @@
+﻿@using CIPlatform.Models
+@model MissionListingModel
+
+@{
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script data-main="dist/js/" src="js/require.min.js"></script>
+<script src="~/js/vertuleSelect.js"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/virtual-select-plugin@1.0.33/dist/virtual-select.min.js"></script>*@
+<script>
+
+    setTimeout(alertFunc, 1000);
+    function alertFunc(){
+        VirtualSelect.init({
+            ele: '#ddlCountry',
+            dropboxWidth: '170px'
+        });
+        VirtualSelect.init({
+            ele: '#ddlCity',
+            dropboxWidth: '170px'
+        });
+        VirtualSelect.init({
+            ele: '#ddlTheme',
+            dropboxWidth: '170px'
+        });
+        VirtualSelect.init({
+            ele: '#ddlSkill',
+            dropboxWidth: '170px'
+        });
+    }
+
+    $(document).ready(function () {
+
+        $("#countryDiv").change(function() {
+            FilterTag("#ddlCountry");
+            Filter();
+        });
+        $("#cityDiv").change(function () {
+            FilterTag("#ddlCity");
+            Filter();
+        });
+        $("#themeDiv").change(function () {
+            FilterTag("#ddlTheme");
+            Filter();
+        });
+        $("#skillDiv").change(function () {
+            FilterTag("#ddlSkill");
+            Filter();
+        });
+        $("#ddlShort").change(function (){
+            Filter();
+        });
+    });
+
+     function Search(){
+            Filter();
+     }
+
+     function favMission(Missionid,Missionfav){
+         $.ajax({
+            url: '/Mission/FavMission',
+            type:'POST',
+            dataType:'json',
+            data:{id:Missionid,fav:Missionfav},
+            success:function(d){
+                Filter();
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+     }
+
+     function ApplyMission(MissionId){
+         $.ajax({
+            url: '/Mission/ApplyMission',
+            type:'POST',
+            dataType:'json',
+            data:{id:MissionId},
+            success:function(d){
+                Filter();
+                alert(d);
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+     }
+
+     function FilterTag(str){
+         var a = document.querySelector(str).getSelectedOptions();
+         $(str + "Div").empty();
+         $.each(a,function(i,text){
+            $(str + "Div").append('<button type="button" class="btn btn-sm btn-outline-dark rounded-pill mt-1 me-2"><span class="text-wrap">'+ text.label +'</span><i class="bi bi-x"></i></button>') ;
+         });
+     }
+
+    function Filter(){
+        let searchParams = new URLSearchParams(window.location.search)
+        let param = searchParams.get('pg');
+        var country = $("#ddlCountry").val();
+        var city = $("#ddlCity").val();
+        var theme = $("#ddlTheme").val();
+        var skill = $("#ddlSkill").val();
+        var search = $("#box").val();
+        var Sort = $("#ddlShort").val();
+         $.ajax({
+            url: '/Mission/Filter',
+            type:'POST',
+            dataType:'html',
+            data:{CountryId: country,CityId:city,ThemeId:theme,SkillId:skill,searchText:search,sort:Sort,pg:param},
+            success:function(d){
+                
+                $("#missionGrid").empty();
+                $("#missionGrid").html(d);
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+    }
+
+</script>
+
+
+
+<div class="container-lg">
+    <nav class="navbar navbar-expand-lg py-0">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block ">
+                    <input type="search" id="box" onkeyup="Search()" class="form-control customshadow"
+                           style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                           placeholder=" &#xF002; Search Mission..." aria-label="Search" />
+                </form>
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                    <li class="nav-item dropdown border-lg-left border-sm-left-0 p-2">
+                        <div id="countryDiv">
+                            <select id="ddlCountry" class="border-0" multiple asp-items="Model.countrys"
+                                    placeholder="Country"
+                                    data-search="true">
+                            </select>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown border-sm-left-0 border-lg-left p-2">
+
+                        <div id="cityDiv">
+                            <select id="ddlCity" class="border-0" multiple asp-items="Model.citys"
+                                    placeholder="City"
+                                    data-search="true" data-silent-initial-value-set="true">
+                            </select>
+                        </div>
+
+                        @*  <select class="form-select border-0" id="ddlCity" asp-items="@Model.citys" aria-label="Default select example">
+                            <option selected>City</option>
+                            </select>*@
+
+                    </li>
+                    <li class="nav-item dropdown border-lg-left border-sm-left-0 p-2">
+
+                        <div id="themeDiv">
+                            <select id="ddlTheme" class="border-0" multiple asp-items="Model.themes"
+                                    placeholder="Theme"
+                                    data-search="true" data-silent-initial-value-set="true">
+                            </select>
+                        </div>
+
+                        @*     <select class="form-select border-0" id="ddlTheme" asp-items="@Model.themes" aria-label="Default select example">
+                            <option selected>Theme</option>
+                            </select>*@
+                    </li>
+                    <li class="nav-item dropdown border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+
+                        <div id="skillDiv">
+                            <select id="ddlSkill" class="border-0" multiple asp-items="Model.skills"
+                                    placeholder="Skills"
+                                    data-search="true" data-silent-initial-value-set="true">
+                            </select>
+                        </div>
+
+                        @*<select class="form-select border-0" id="ddlSkill" asp-items="@Model.skills" style="width:100px" aria-label="Default select example">
+                            <option selected>Skill</option>
+                            </select>*@
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<hr class="d-none d-lg-block" style="margin: 0px;">
+
+
+
+
+<div class="container-lg">
+
+    <div class="mt-md-3 mb-md-3">
+
+        <span id="ddlCountryDiv"></span>
+        <span id="ddlCityDiv"></span>
+        <span id="ddlThemeDiv"></span>
+        <span id="ddlSkillDiv"></span>
+
+        <a class="ms-2" style="text-decoration: none; color:black;" href="MissionListing">
+            Clear all
+        </a>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <label class="fs-4">Explore <span class="fw-semibold">@Model.TotalMission missions</span></label>
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+
+                <li class="nav-item me-md-4 d-none d-lg-block">
+                    <span id="SortDiv">
+                        <select id="ddlShort" placeholder="Sort By">
+                            <option selected>Sort By</option>
+                            <option value="1">Newest</option>
+                            <option value="2">Oldest</option>
+                            <option value="3">Lowest available seats</option>
+                            <option value="4">Highest available seats</option>
+                            <option value="5">Sort by my favourite</option>
+                            <option value="6">Sort by deadline</option>
+                        </select>
+                    </span>
+
+                </li>
+
+                <li class="nav-item ms-2 d-none d-lg-block">
+                    <button class="rounded-circle btn btn-light"><i class="bi bi-grid"></i></button>
+                </li>
+                <li class="nav-item ms-1 d-none d-lg-block">
+                    <button class="rounded-circle btn btn-light"><i class="bi bi-list"></i></button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="missionGrid">
+        @{
+            Html.RenderPartial("_MissionGridPartial", Model.missionsCard);
+        }
+    </div>
+
+
+    <nav aria-label="Page navigation example mt-5 mb-5">
+
+        @if (pager.TotalPages > 0)
+        {
+            <ul class="pagination justify-content-center">
+
+                @if (pager.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Mission" asp-action="MissionListing" asp-route-pg="1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Mission" asp-action="MissionListing" asp-route-pg="@(pager.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
+
+                @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                {
+                    <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                        <a class="page-link" asp-controller="Mission" asp-action="MissionListing" asp-route-pg="@pge">@pge</a>
+                    </li>
+                }
+
+                @if (pager.CurrentPage < pager.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Mission" asp-action="MissionListing" asp-route-pg="@(pager.CurrentPage + 1)">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Mission" asp-action="MissionListing" asp-route-pg="@(pager.TotalPages)">Last</a>
+                    </li>
+                }
+            </ul>
+        }
+    </nav>
+</div>

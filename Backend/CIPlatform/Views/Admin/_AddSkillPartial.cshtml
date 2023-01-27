@@ -1,0 +1,36 @@
+﻿@using CIPlatform.DataModels
+@model Skill
+
+
+<div class="modal fade" id="AddSkill">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="modalForm" method="post" action="CreateSkill">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Skill</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label asp-for="SkillName">Skill</label>
+                            <input type="text" name="SkillName" asp-for="SkillName" required="" class="form-control" placeholder="Enter Skill" id="" />
+                            <span asp-validation-for="SkillName" class="text-danger"></span>
+                        </div>
+                        <input asp-for="SkillId" hidden />
+                        <input asp-for="CreatedAt" hidden />
+                        <input asp-for="Status" hidden />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-outline-warning rounded-pill">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

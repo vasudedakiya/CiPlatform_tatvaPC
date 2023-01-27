@@ -1,0 +1,368 @@
+﻿@{
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ClPlatform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ClPlatform.styles.css" asp-append-version="true" />
+</head>
+<body>
+    
+    @if(controllerName != "Login"){
+    <header>
+        <div class="container-lg">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <button class="navbar-toggler customshadow" type="button" style="border: 0px; margin-left: -20px;"
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <span class="navbar-toggler" style="border: 0px;">
+                        <form class="form-horizontal ">
+                            <input type="search" class="form-control customshadow"
+                                style="width: 40vw; border: 0px; font-family:Arial, FontAwesome;"
+                                placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                        </form>
+                    </span>
+                    <span class="navbar-toggler" style="border: 0px; margin-right: -35px;">
+                        <img src="~/Assets/volunteer1.png" width="30" height="30" class="d-inline-block rounded-circle"
+                            alt="">
+                    </span>
+
+                    <button class="navbar-toggler" style="border: 0px; box-shadow: none; margin-right: -15px;" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="bi bi-sliders2-vertical"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown me-md-5 ms-md-5">
+                                <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Explore <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">Top Themes <i
+                                                class="bi bi-chevron-right float-end"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item text-dark" >Education</a></li>
+                                            <li><a class="dropdown-item text-dark">Children</a></li>
+                                            <li><a class="dropdown-item text-dark">Helth</a></li>
+                                            <li><a class="dropdown-item text-dark">Animals</a></li>
+                                            <li><a class="dropdown-item text-dark">Nutritions</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item text-dark" href="#">Top Country <i
+                                                class="bi bi-chevron-right float-end"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item text-dark" href="#">India</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">China</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">USA</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">Australia</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">Japan</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item text-dark" href="#">Top Organisation <i
+                                                class="bi bi-chevron-right"></i></a>
+                                        <ul class="submenu dropdown-menu">
+                                            <li><a class="dropdown-item text-dark" href="#">WHO</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">APHA</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">TCC</a></li>
+                                            <li><a class="dropdown-item text-dark" href="#">NIH</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="dropdown-item text-dark" href="#">Most Ranked</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Top Favourite</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Recommended</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Random</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item me-md-5">
+                                <a class="nav-link text-dark" href="#">Stories</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Policy <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">Volunteering</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Sponsored</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+
+                        <button type="button" class="btn btn-outline-warning rounded-pill me-3" data-bs-toggle="modal"
+                            data-bs-target="#SubmitNewMission">Submit new mission</button>
+
+
+                        <a class="navbar-brand d-flex" href="#">
+                            <img src="~/Assets/volunteer1.png" width="30" height="30"
+                                class="d-inline-block me-2 rounded-circle d-none d-lg-block" alt="">
+                            <span class="dropdown my-2 my-sm-0">
+                                <a class="link-dark nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Evan Donohue
+                                    <i class="bi bi-chevron-down"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-lg-end">
+                                    <li><a class="dropdown-item text-dark" href="#">Dashbord</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">My Account</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Help Center</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Log out</a></li>
+                                </ul>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr style="margin: 0px;">
+        <div class="modal fade" id="SubmitNewMission" tabindex="-1" aria-labelledby="SubmitNewMissionLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add new Mission</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="">Country</label>
+                                    <a class="nav-link p-2 border text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Select Country <i class="bi bi-chevron-down float-end"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="#">India</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">USA</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">China</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Australia</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Japan</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <label for="">City</label>
+                                    <a class="nav-link p-2 border text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Select City <i class="bi bi-chevron-down float-end"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="#">Ahmdabad</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Surat</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Tokyo</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Amsadam</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Hydrabad</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Title</label>
+                                    <input type="text" name="" class="form-control" placeholder="Enter Mission Title" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Description</label>
+                                    <textarea name="" class="form-control" placeholder="Enter your message" id="" cols="30"
+                                        rows="4"></textarea>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Organisation Name</label>
+                                    <input type="text" name="" class="form-control"
+                                        placeholder="Enter mission organisation name" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Organisation Detail</label>
+                                    <textarea name="" class="form-control" placeholder="Enter your message" id="" cols="30"
+                                        rows="4"></textarea>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Start Date</label>
+                                    <input type="date" name="" class="form-control" placeholder="Select start date" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">End Date</label>
+                                    <input type="date" name="" class="form-control" placeholder="Select end date" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Total seats</label>
+                                    <input type="number" name="" class="form-control" placeholder="Enter total seats" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission registration deadline</label>
+                                    <input type="date" name="" class="form-control"
+                                        placeholder="Enter mission registration deadline" id="">
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Theme</label>
+                                    <a class="nav-link p-2 border text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Select mission theme <i class="bi bi-chevron-down float-end"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="#">Ahmdabad</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Surat</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Tokyo</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Amsadam</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Hydrabad</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Skills</label>
+                                    <a class="nav-link p-2 border text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Select mission skills <i class="bi bi-chevron-down float-end"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="#">Ahmdabad</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Surat</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Tokyo</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Amsadam</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Hydrabad</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Images</label>
+                                    <div class="form-group files uploadImg">
+                                        <input type="file" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <label for="">Mission Documents</label>
+                                    <div class="form-group files uploadDoc">
+                                        <input type="file" name="" id="">
+                                    </div>
+                                    <label class="fs-6">Allowed file types: PDF, Doc</label>
+                                </div>
+                                <div class="col-12 mt-3 mb-5">
+                                    <label for="">Mission Availability</label>
+                                    <a class="nav-link p-2 border text-dark" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Select availability <i class="bi bi-chevron-down float-end"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item text-dark" href="#">Ahmdabad</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Surat</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Tokyo</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Amsadam</a></li>
+                                        <li><a class="dropdown-item text-dark" href="#">Hydrabad</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-outline-warning rounded-pill">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    }
+
+    @if (controllerName != "Login")
+    {
+        <div class="container-lg">
+            <nav class="navbar navbar-expand-lg py-0">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <form class="form-horizontal me-auto mb-2 mb-lg-0 d-none d-lg-block p-2">
+                            <input type="search" class="form-control customshadow"
+                                style="width: 50vw; border: 0px; font-family:Arial, FontAwesome;"
+                                placeholder=" &#xF002; Search Mission" aria-label="Search" />
+                        </form>
+                        <ul class="navbar-nav ms-auto my-2 my-lg-0 navInline">
+                            <li class="nav-item dropdown me-lg-4 border-lg-left border-sm-left-0 p-2">
+                                <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Country <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">India</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">China</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">USA</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Australia</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Japan</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown me-md-4 border-sm-left-0 border-lg-left p-2">
+                                <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    City <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">Ahmdabad</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Surat</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Tokyo</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Amsadam</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Hydrabad</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown me-md-4 border-lg-left border-sm-left-0 p-2">
+                                <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Theme <i class="bi bi-chevron-down"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">Education</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Children</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Helth</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Animals</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Nutritions</a></li>
+                                </ul>
+                            </li>
+                            <li
+                                class="nav-item dropdown me-md-4 border-lg-left border-lg-right border-sm-left-0 border-sm-right-0 p-2">
+                                <a class="nav-link text-dark" href="#" role="button"
+                                    style="font-family:Arial, Helvetica, sans-serif, Bootstrap-icons;"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Skills &#xF282;
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-dark" href="#">Anthropology</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Archeolgy</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Astronomy</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">Computer Science</a></li>
+                                    <li><a class="dropdown-item text-dark" href="#">History</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <hr class="d-none d-lg-block" style="margin: 0px;">
+    }
+
+    <div style="margin:0px;">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    @if (controllerName != "Login")
+    {
+        <footer>
+             <hr>
+             <div class="container-lg">
+               <div class="row mt-5 mb-4 ms-3 ">
+                    <a asp-controller="Policy" asp-action="Home" class="link-dark">Privacy Policy</a>
+               </div>
+            </div>
+        </footer>
+    }
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

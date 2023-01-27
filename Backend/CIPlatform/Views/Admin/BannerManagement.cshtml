@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Banner</span>
+<hr style="margin-top: 6px;">
+
+<div style="margin-bottom: 70px;">
+    <span class="float-end">
+        <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                data-target="#AddCarousel" data-url="@Url.Action("CreateBanner")">
+            <i class="bi bi-plus"></i>
+            <span class="text-wrap">Add</span>
+        </button>
+    </span>
+</div>
+
+<div id="PlaceHolderHere"></div>
+
+
+
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Create At</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.banners)
+        {
+            <tr>
+                <td>@item.BannerId</td>
+                <td>@item.Title</td>
+                <td>@item.CreatedAt</td>
+                <td>
+                    <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddCarousel" data-url="@Url.Action($"EditBanner?id={@item.BannerId}")" >
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteBanner", "Admin" ,new {id = @item.BannerId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+
+
+        @*
+            <tr>
+            <td>1</td>
+            <td>Sed ut perspiciatis unde omnis iste natus voluptatem.</td>
+            <td class="text-success fw-bold">Active</td>
+            <td><i class="bi bi-pencil-square text-secondary"></i></td>
+            <td><i class="bi bi-trash text-danger"></i></td>
+            <td>
+            <button type="button" class="btn btn-outline-secondary rounded-pill px-4">
+            <span class="text-wrap">view</span>
+            </button>
+            </td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, quae?</td>
+            <td class="text-success fw-bold">Active</td>
+            <td><i class="bi bi-pencil-square text-secondary"></i></td>
+            <td><i class="bi bi-trash text-danger"></i></td>
+            <td>
+            <button type="button" class="btn btn-outline-secondary rounded-pill px-4">
+            <span class="text-wrap">view</span>
+            </button>
+            </td>
+            </tr>
+            <tr>
+            <td>3</td>
+            <td>Sed ut perspiciatis unde omnis iste natus voluptatem.</td>
+            <td class="text-success fw-bold">Active</td>
+            <td><i class="bi bi-pencil-square text-secondary"></i></td>
+            <td><i class="bi bi-trash text-danger"></i></td>
+            <td>
+            <button type="button" class="btn btn-outline-secondary   rounded-pill px-4">
+            <span class="text-wrap">view</span>
+            </button>
+            </td>
+            </tr>
+        *@
+    </tbody>
+</table>

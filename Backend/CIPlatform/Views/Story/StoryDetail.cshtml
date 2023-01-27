@@ -1,0 +1,131 @@
+﻿@using CIPlatform.Models
+@model StoryDetailModel
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        const slides = document.querySelectorAll(".slide")
+        const vid = document.querySelectorAll("video.slide")
+        const totalImgInSlider = 4;
+        const totalImg = @Model.storyImg.Count();
+        var counter = 0;
+
+        slides.forEach(
+            (slider, index) => {
+                slider.style.left = `${index * 100 / totalImgInSlider}%`
+            }
+        )
+
+        slideImg = () => {
+            slides.forEach((slider) => {
+                    slider.style.transform = `translateX(-${counter * 100}%)`
+            })
+        }
+
+        goPrev = () => {
+            if (counter != 0)
+                counter--;
+            slideImg();
+        }
+
+        goNext = () => {
+            if (counter < totalImg - totalImgInSlider)
+                counter++;
+            slideImg();
+        }
+
+        setImage = () => {
+            document.getElementById("demo").src = document.querySelector(".slide.active").src;
+        }
+    });
+</script>
+<link rel="stylesheet" href="~/css/slider.css" />
+
+<div class="container-lg">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12 position-relative">
+            <display>
+                <img style="height: 420px; width: 100%;object-fit: cover;" id="demo" src="@Url.Content(Model.storyImg[0])" alt="">
+            </display>
+            <div class="sliderNav">
+                @foreach (var item in Model.storyImg)
+                {
+                    <div><img class="slide" src="@Url.Content(item)" alt="can't rendor"></div>
+                }
+                <button onclick="goPrev()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </button>
+                <button onclick="goNext()" style="right:0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </button>
+                <script>
+
+                    $("img.slide").on('click', function (event) {
+                        $('.slide.active').removeClass('active');
+                        $(this).addClass("active");
+                        setImage();
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 p-5 pt-3">
+            <div class="row">
+                <div class="float-start mt-3">
+                    <img src="@Url.Content(Model.userImg)" width="80" height="80"
+                         class="d-inline-block rounded-circle ms-2" alt="">
+                    <br>
+                    <small>@Model.userName</small>
+                </div>
+
+                <div class="d-flex flex-row-reverse" style="margin-top: -31px;">
+                    <button type="button" class="btn btn-sm btn-outline-dark rounded-pill">
+                        <i class="bi bi-eye"></i>
+                        <span class="text-wrap">@Model.viewCount Views</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <p>
+                    @Model.whyVolenteer
+                </p>
+            </div>
+
+
+            <div class="row mt-5">
+                <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                    <button type="button" data-toggle="ajax-modal" data-target="#SuggestWorker" class="btn btn-outline-dark rounded-pill w-100"
+                            data-url="@Url.Action("SuggestCoWorker", "Story" , new {id = @Model.storyId})">
+                        <i class="bi bi-person-plus-fill"></i>
+                        <span class="text-wrap">Recommended to a Co-Worker</span>
+                    </button>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                    <button type="button" onclick="return location.href=' @Url.Action("MisionDetail","Mission",new {id= @Model.missionId}) '" class="btn btn-outline-warning rounded-pill w-100">
+                        <span class="text-wrap">Open Mission</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="PlaceHolderHere"></div>
+    <div class="mt-5">
+        <p class="fs-4">@Model.storyTitle</p>
+        <hr>
+        <div class="mt-4">
+            @Model.storyDetail
+        </div>
+    </div>
+
+</div>

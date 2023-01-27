@@ -1,0 +1,100 @@
+﻿@using CIPlatform.Models
+@model AddStoryModel
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+      $("#storyImg").change(function() {
+        if (this.files && this.files[0]) {
+          for (var i = 0; i < this.files.length; i++) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[i]);
+          }
+        }
+      });
+    });
+
+    function imageIsLoaded(e) {
+      $('#imgDiv').append( '<div class="col-md-1 col-sm-3 mb-3 position-relative"> <img src='+e.target.result+' data-mdb-img='+e.target.result+' alt="Gallery image 1" class="active w-100" /> <div class="position-absolute top-0 end-0">X</div> </div>');
+    };
+
+</script>
+
+
+
+<div class="container mb-5">
+    <!-- #region Form -->
+    <form action="CreateStory" method="post" enctype="multipart/form-data">
+        <div>
+            <p class="fs-1 mt-5">Share your story</p>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <label>Select Mission</label>
+                    <br>
+                    <select class="form-select customshadow" id="ddlCountry" required="" asp-for="story.MissionId" asp-items="@Model.missions" aria-label="Default select example">
+                        <option selected>Select Mission</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <label asp-for="story.Title">My story Title</label>
+                    <br>
+                    <input type="text" required="" class="form-control customshadow p-2 w-100" name="story.Title" asp-for="story.Title"
+                           placeholder="Enter Story Title">
+                    <span asp-validation-for="story.Title" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <label>Date</label>
+                    <br>
+                    <input type="date" required="" asp-for="story.PublishedAt" class="form-control customshadow p-2 w-100" 
+                           placeholder="Enter Story Title" id="">
+                </div>
+            </div>
+
+            <div class="mt-3">
+@*                <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+                <script type="text/javascript">
+                    bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+                </script>*@
+
+                <Label asp-for="story.Description">My Story</Label>
+                <textarea required="" name="story.Description" asp-for="story.Description" style="width: 100%; height: 250px;"></textarea>
+               
+            </div>
+
+            <div class="mt-3">
+                <label for="">Enter Video URL</label>
+                <input type="text" class="form-control customshadow p-2 w-100" placeholder="Enter your URL"
+                       id="">
+            </div>
+
+            <div class="mt-3">
+                <label>Upload Your Photos</label>
+                <div class="form-group files">
+                    <input type="file" id="storyImg" multiple name="storyImg" />
+                </div>
+
+                <div class="d-none d-sm-block d-flex">
+                    <div class="row mt-4" id="imgDiv">
+
+                    </div>
+                </div>
+
+                <div class="mt-3 mb-5">
+                    <button class="btn btn-outline-dark rounded-pill float-start">
+                        <span class="p-2">Cancel</span>
+                    </button>
+
+                    <button type="submit" class="btn btn-outline-warning rounded-pill float-end">
+                        <span class="p-2">Submit</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- endregion Form -->
+</div>

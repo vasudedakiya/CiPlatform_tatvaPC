@@ -1,0 +1,646 @@
+﻿@using CIPlatform.Models
+@model MissionDetailModel
+
+
+<style>
+    .tabs-container {
+        width: 62.5%;
+        position: relative;
+        margin-right: auto;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #414141;
+        background-color: white;
+        border-color: white;
+        border-bottom: 3px solid black;
+    }
+</style>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+        $(function () {
+        var PlaceHolderElement = $('#PlaceHolderHere');
+        $('button[data-toggle="ajax-modal-coWoerker-detailPage"]').click(function (event) {
+            var url = $(this).data('url');
+            var decodeUrl = decodeURIComponent(url);
+             console.log("mission detail");
+            $.get(decodeUrl).done(function (data) {
+                PlaceHolderElement.html(data);
+                PlaceHolderElement.find('.modal').modal('show');
+            })
+        })
+
+        PlaceHolderElement.on('click', '[data-bs-save="modal"]', function (event) {
+            var formData = new FormData($('#modalForm').get(0));
+            var form = $(this).parents('.modal').find('form');
+            var actionUrl = form.attr('action');
+           
+            $.ajax({
+                url: "/Mission/" + actionUrl,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function (data) {
+                    PlaceHolderElement.find('.modal').modal('hide');
+                }
+            })
+            PlaceHolderElement.find('.modal').modal('hide');
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        $("#rt_1").click(function(){
+            $(".rtcolor").removeClass("text-warning");
+            $("#rt_1").addClass("text-warning");
+            RateMission(1);
+        });
+        $("#rt_2").click(function(){
+            $(".rtcolor").removeClass("text-warning");
+            $("#rt_1, #rt_2").addClass("text-warning");
+            RateMission(2);
+        });
+        $("#rt_3").click(function(){
+            console.log("ittttttttttt")
+            $(".rtcolor").removeClass("text-warning");
+            $("#rt_1, #rt_2, #rt_3").addClass("text-warning");
+            RateMission(3);
+        });
+        $("#rt_4").click(function(){
+            $(".rtcolor").removeClass("text-warning");
+            $("#rt_1, #rt_2, #rt_3, #rt_4").addClass("text-warning");
+            RateMission(4);
+        });
+        $("#rt_5").click(function(){
+            $(".rtcolor").removeClass("text-warning");
+            $("#rt_1, #rt_2, #rt_3, #rt_4, #rt_5").addClass("text-warning");
+            RateMission(5);
+        });
+    });
+
+    function RateMission(Rate){
+        $.ajax({
+            url: '/Mission/RateMission',
+            type:'POST',
+            dataType:'json',
+            data:{missionId: @Model.missionId ,rate:Rate},
+            success:function(d){
+                location.reload();
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+    }
+
+    function favMission(Missionid,Missionfav){
+         $.ajax({
+            url: '/Mission/FavMission',
+            type:'POST',
+            dataType:'json',
+            data:{id:Missionid,fav:Missionfav},
+            success:function(d){
+                location.reload();
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+     }
+
+     function ApplyMission(MissionId){
+         $.ajax({
+            url: '/Mission/ApplyMission',
+            type:'POST',
+            dataType:'json',
+            data:{id:MissionId},
+            success:function(d){
+                alert(d);
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+     }
+
+     function PostComment(id){
+         console.log("Runnnnnnnnn")
+         var com = $("textarea#CommentBox").val();
+         $.ajax({
+            url: '/Mission/PostComment',
+            type:'POST',
+            dataType:'json',
+            data:{id:id,comment:com},
+            success:function(d){
+                location.reload();
+            },
+            error:function(){
+                alert('Error');
+            }
+         });
+     }
+</script>
+
+<script>
+    $(document).ready(function () {
+        const slides = document.querySelectorAll(".slide")
+        const vid = document.querySelectorAll("video.slide")
+        const totalImgInSlider = 4;
+        const totalImg = @Model.imgs.Count();
+        var counter = 0;
+
+        slides.forEach(
+            (slider, index) => {
+                slider.style.left = `${index * 100 / totalImgInSlider}%`
+            }
+        )
+
+        slideImg = () => {
+            slides.forEach((slider) => {
+                    slider.style.transform = `translateX(-${counter * 100}%)`
+            })
+        }
+
+        goPrev = () => {
+            if (counter != 0)
+                counter--;
+            slideImg();
+        }
+
+        goNext = () => {
+            if (counter < totalImg - totalImgInSlider)
+                counter++;
+            slideImg();
+        }
+
+        setImage = () => {
+            document.getElementById("demo").src = document.querySelector(".slide.active").src;
+        }
+    });
+</script>
+
+<link rel="stylesheet" href="~/css/slider.css" />
+<div class="container-lg">
+    <!-- #region Galary & Main Content -->
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12 position-relative">
+            <display>
+                <img style="height: 420px; width: 100%;object-fit: cover;" id="demo" src="@Url.Content(Model.imgs[0].MediaPath)" alt="">
+            </display>
+            <div class="sliderNav">
+                @foreach (var item in Model.imgs)
+                {
+                    <div><img class="slide" src="@Url.Content(item.MediaPath)" alt="can't rendor"></div>
+                }
+                <button onclick="goPrev()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </button>
+                <button onclick="goNext()" style="right:0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </button>
+                <script>
+
+                    $("img.slide").on('click', function (event) {
+                        $('.slide.active').removeClass('active');
+                        $(this).addClass("active");
+                        setImage();
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 p-md-5 p-sm-2 pt-3">
+
+            <h2 style="font-weight: 300; padding-right: 5%;">@Model.missionCard.mission.Title</h2>
+            <p class="mt-3 pe-3">
+                @Model.missionCard.mission.ShortDescription
+            </p>
+            <br>
+            @if (Model.missionCard.mission.StartDate == null)
+            {
+                <div>
+                    <div class="cardAction">
+                        <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                          style="background-color: white; color: #757575; ">
+                            @Model.missionCard.goalMission.GoalObjectiveText &nbsp; @Model.missionCard.goalMission.GoalValue
+                        </span>
+                    </div>
+                    <hr style=" z-index: -12;">
+                </div>
+            }
+            else
+            {
+                <div>
+                    <div class="cardAction">
+                        <span class="text-wrap btn btn-sm btn-outline-dark rounded-pill subAction"
+                          style="background-color: white; color: #757575; ">
+                            Ongoing Opportunity
+                        </span>
+                    </div>
+                    <hr style=" z-index: -12;">
+                </div>
+            }
+
+            <div class="row m-5 mt-4 mb-4">
+                <div class="col-6 text-wrap">
+                    <span class="cardDedlineSeats"><i class="bi bi-person-check me-2 ms-3"></i>@Model.missionCard.seatsLeft</span>
+                    <br style="margin: 0px;">
+                    <span class="cardSmallText ms-4">Seats left</span>
+                </div>
+                @if (Model.missionCard.mission.Deadline != null)
+                {
+                    <div class="col-6 text-wrap">
+                        <span class="cardDedlineSeats"><i class="bi bi-clock me-2 ms-3"></i>@Convert.ToDateTime(Model.missionCard.mission.Deadline).ToString("dd/MM/yyyy")</span>
+                        <br style="padding: 0px;">
+                        <span class="cardSmallText ms-5">Dedline</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-1"><i class="bi bi-vinyl"></i></div>
+                    <div class="col-5 text-wrap d-inline">
+                        <span class="progress" style="height: 10px; margin-top: 8px; width: 100%;">
+                            <span class="progress-bar bg-warning" role="progressbar" aria-label="Basic example"
+                              style="width: @Model.missionCard.progressBar%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="75">
+                            </span>
+                        </span>
+                        <span class="cardSmallText ms-5">
+                            @((Model.missionCard.progressBar * Model.missionCard.goalMission.GoalValue)/100)
+                            Achieved</span>
+                    </div>
+                }
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mt-2">
+                    @if (Model.missionCard.favMission == 0)
+                    {
+                        <button type="button" onclick="favMission(@Model.missionCard.mission.MissionId,1)" class="btn btn-outline-dark rounded-pill w-100">
+                            <i class="bi bi-suit-heart"></i>
+                            <span class="text-wrap">Add to Favourite</span>
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="button" onclick="favMission(@Model.missionCard.mission.MissionId,0)" class="btn btn-outline-dark rounded-pill w-100">
+                            <i class="bi bi-heart-fill text-danger"></i>
+                            <span class="text-wrap">Remove to Favourite</span>
+                        </button>
+
+                    }
+                </div>
+
+
+                <div class="col-lg-6 col-md-12 mt-2">
+                    <button type="button" data-toggle="ajax-modal-coWoerker-detailPage" data-target="#SuggestWorker" class="btn btn-outline-dark rounded-pill w-100"
+                            data-url="@Url.Action("SuggestCoWorker", "Mission" , new{id = Model.missionCard.mission.MissionId})">
+                        <i class="bi bi-person-plus-fill"></i>
+                        <span class="text-wrap">Recommended to a Co-Worker</span>
+                    </button>
+                </div>
+            </div>
+            <div id="PlaceHolderHere"></div>
+
+            <div>
+                <div class="cardAction mt-2" style="margin-bottom:-25px ;">
+                    <span class="text-wrap subAction pe-2 ps-2" style="background-color: white;">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (Model.myRating >= i)
+                            {
+                                <i class="bi bi-star-fill rtcolor text-warning" id="rt_@i"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-star rtcolor" id="rt_@i"></i>
+                            }
+                        }
+
+                    </span>
+                </div>
+                <hr style=" z-index: -12;">
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
+                    <div class="border p-2">
+                        <span>
+                            <i class="bi bi-geo-alt fs-3"></i>
+                            <br><br>
+                            <small class="fw-light">city</small>
+                            <br>
+                            @Model.missionCard.country
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
+                    <div class="border p-2">
+                        <span>
+                            <i class="bi bi-globe fs-3"></i>
+                            <br><br>
+                            <small class="fw-light">Theme</small>
+                            <br>
+                            @Model.missionCard.theme
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
+                    <div class="border p-2">
+                        <span>
+                            <i class="bi bi-calendar3 fs-3"></i>
+                            <br>
+                            <small class="fw-light">Date</small>
+                            <br>
+                            @if (Model.missionCard.mission.StartDate != null)
+                            {
+                                <span> until @Convert.ToDateTime(Model.missionCard.mission.EndDate).ToString("dd/MM/yyyy")</span>
+                            }
+                            else
+                            {
+                                <span>Ongoing Opportunity</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-5 mt-1">
+                    <div class="border p-2">
+                        <span>
+                            <i class="bi bi-people fs-3"></i>
+                            <br><br>
+                            <small class="fw-light">Organisation</small>
+                            <br>
+                            @Model.missionCard.mission.OrganizationName
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cardAction mt-3">
+                @if (Model.missionCard.mission.Deadline > DateTime.Now && Model.missionCard.seatsLeft > 0)
+                {
+                    <button type="button" onclick="ApplyMission(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning rounded-pill"
+                        style="margin-left: auto; margin-right: auto;">
+                        <span class="text-wrap">Apply Now </span>
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </button>
+                }
+                else if (Model.missionCard.mission.MissionType == 2 && Model.missionCard.seatsLeft > 0 && Model.missionCard.progressBar < 100)
+                {
+                    <button type="button" onclick="ApplyMission(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning rounded-pill"
+                        style="margin-left: auto; margin-right: auto;">
+                        <span class="text-wrap">Apply Now </span>
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </button>
+                }
+            </div>
+
+        </div>
+    </div>
+    <!-- endregion Galary & Main Content -->
+    <!-- #region Sub Content -->
+
+    <div class="row mt-5">
+
+        <div class="col-md-8 col-sm-12 mb-5">
+
+            <div>
+                <ul class="nav nav-tabs"
+                    style="overflow-x: auto; white-space: nowrap; display: block; overflow-y: hidden;" id="myTab"
+                    role="tablist">
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab"
+                                data-bs-target="#Mission" type="button" role="tab" aria-controls="Mission"
+                                aria-selected="true" style="color: #757575;font-size: 15px;">
+                            Mission
+                        </button>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                type="button" role="tab" aria-controls="profile" aria-selected="false"
+                                style="color: #757575;font-size: 15px;">
+                            Organization
+                        </button>
+                    </li>
+                    <li class="nav-item" style="display: inline-block;" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                                type="button" role="tab" aria-controls="contact" aria-selected="false"
+                                style="color: #757575;font-size: 15px;">
+                            Comments
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent" style="margin-top: 25px;">
+
+                    <div class="tab-pane fade show active" id="Mission" role="tabpanel"
+                         aria-labelledby="mission-tab">
+                        <h4 class="common-font" style="font-weight: normal;color: #414141;">Introduction</h4>
+                        <p class="common-font info-details" style="line-height: 1.6;">
+                            @Model.missionCard.mission.Description
+                        </p>
+
+                        <h4 class="common-font" style="font-weight: normal;color: #414141;">Challenge</h4>
+                        <p class="common-font info-details" style="line-height: 1.6;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                            in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat
+                            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <br><br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non
+                            proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <p class="fs-4">Orgnization</p>
+                        <p>
+                            @Model.missionCard.mission.OrganizationDetail
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                        <textarea id="CommentBox" class="form-control"></textarea>
+                        <button type="button" onclick="PostComment(@Model.missionCard.mission.MissionId)" class="btn btn-outline-warning my-3 rounded-pill"
+                                style="margin-left: auto; margin-right: auto;">
+                            <span class="text-wrap">Post Comment</span>
+                        </button>
+
+                        <div class="p-3" style="background-color:#f7f7f7;">
+                            @foreach (var item in Model.comments)
+                            {
+                                <div class="row mb-3 p-3 ms-0 me-0" style="background-color:white;">
+                                    <div class="col-lg-1 col-md-2 col-sm-2 col-12 p-0">
+                                        <img src="@Url.Content(item.img)" class="rounded-circle" height="45px">
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-10 col-12 p-0">
+                                        <p class="mb-1" style="font-size:14px ;">@item.name</p>
+                                        <p style="font-size:10px ;">@item.createdAt.ToString()</p>
+                                        <p class="mb-0" style="font-size:12px ;">
+                                            @item.commentText
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
+
+                    <div>
+                        <p class="fs-4">Document</p>
+                        @foreach (var item in Model.docs)
+                        {
+                            <a class="btn btn-sm btn-outline-dark rounded-pill me-2 mb-2" href="@Url.Content(@item.DocumentPath)" target="_blank">
+                                <i class="bi bi-filetype-@item.DocumentType.Remove(0,1)"></i>
+                                <span class="text-wrap">@item.DocumentName</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4 col-sm-12">
+
+            <div class="border p-3">
+                <span class="fs-4 border-bottom border-dark border-2 pb-2">Information</span>
+                <hr style="margin-top: 6px;">
+                <div class="row">
+                    <span class="col-3"><label>Skills</label></span>
+                    <span class="col-9">@Model.skills</span>
+                </div>
+                <hr>
+                <div class="row">
+                    <span class="col-3"><label>Days</label></span>
+                    <span class="col-9">@Model.availability</span>
+                </div>
+                <hr>
+                <div class="row">
+                    <span class="col-3"><label>Rating</label></span>
+                    <span class="col-9">
+                        <div class="Stars" style="--rating: @Model.avgRating;" aria-label="Rating of this product is @Model.avgRating out of 5."></div>
+                        <small>(by @Model.ratingUserCount volunteers)</small>
+                    </span>
+                </div>
+            </div>
+
+            <div class="border mt-4 pb-0">
+                <span class="px-3">
+                    <span class="fs-4 border-bottom border-dark border-2 pb-2">Recent volunteers</span>
+                    <hr style="margin: 6px 15px 0px 15px;">
+                </span>
+
+                <div class="row px-3">
+                    @foreach (var item in Model.volunteers)
+                    {
+                        <div class="col-4 text-center mt-3">
+                            <img src="@Url.Content(@item.volunteerImg)" width="60" height="60"
+                             class="d-inline-block rounded-circle " alt="">
+                            <br>
+                            <small>@item.volunteerName</small>
+                        </div>
+                    }
+                    @*<div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer2.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Charles Vigue</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer3.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Kathryn Roberts</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer4.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Estella Fowles</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer5.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Rose Lewis</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer6.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Raymond Pabon</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer7.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Travis Steen</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer8.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Sarah Santillan</small>
+                        </div>
+                        <div class="col-4 text-center mt-3">
+                        <img src="./assets/volunteer9.png" width="60" height="60"
+                        class="d-inline-block rounded-circle " alt="">
+                        <br>
+                        <small>Linda Richards</small>
+                        </div>*@
+
+
+
+                </div>
+
+            </div>
+            <div class="row" style="margin: -17px 0px 0px 0px;">
+                <div class="col-1 border mt-3 p-2">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="col-10 border mt-3 p-2 text-center">@Model.volunteers.Count() Recent Volunteers</div>
+                <div class="col-1 border mt-3 p-2"><i class="bi bi-chevron-right"></i></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- endregion Sub Content -->
+    <!-- #region Related Mission -->
+    <hr style="margin-top: 10%;">
+    <div class="text-center mt-5 mb-4">
+        <span class="fs-3">Related Mission</span>
+    </div>
+
+    <div class="row mb-5 ">
+
+        <div id="missionGrid">
+            @{
+                Html.RenderPartial("_MissionGridPartial", Model.relatedMission);
+            }
+        </div>
+
+
+    </div>
+    <!-- endregion Related Mission -->
+</div>

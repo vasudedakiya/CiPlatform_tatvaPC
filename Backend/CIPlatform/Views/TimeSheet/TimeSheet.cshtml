@@ -1,0 +1,114 @@
+﻿@using CIPlatform.Models
+@model TimeSheetDisplayModel
+
+<div class="container my -5">
+    <div class="my-5">
+        <span class="fs-2">
+            Volunteering Timesheet
+        </span>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12 col-sm-12 col-lg-6">
+            <div class="card" style="height:350px;">
+                <div class="card-body">
+                    <div class="container">
+                        <div>
+                            <div class="float-start">
+                                Volunteering Hours
+                            </div>
+                            <div class="float-end">
+                                <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                                        data-target="#AddVHour" data-url="@Url.Action("AddTimeMission")">
+                                    <i class="bi bi-plus"></i><span class="text-wrap">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row mt-4" style=" max-height: 250px; overflow-y: scroll;">
+                            <div class="col-3 fw-bolder mb-2">Mission</div>
+                            <div class="col-2 fw-bolder">Date</div>
+                            <div class="col-2 fw-bolder">Hours</div>
+                            <div class="col-2 fw-bolder">Minute</div>
+                            <div class="col-3 fw-bolder"></div>
+
+                            @foreach (var item in Model.timeSheets)
+                            {
+                                if (item.Action == null)
+                                {
+                                    <div class="col-3 mb-2">@item.Mission.Title</div>
+                                    <div class="col-2"><small>@Convert.ToDateTime(item.DateVolunteered).ToString("dd/MM/yyyy")</small></div>
+                                    <div class="col-2">@item.Hour</div>
+                                    <div class="col-2">@item.Minute</div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddUser" data-url="@Url.Action($"EditTimeMission?id={@item.TimesheetId}")">
+                                            <i class="bi bi-pencil-square text-secondary"></i>
+                                        </button>
+                                        <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteTimeSheet", "TimeSheet" ,new {id = @item.TimesheetId})' } ">
+                                            <i class="bi bi-trash text-danger"></i>
+                                        </button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-lg-6">
+            <div class="card" style="height:350px;">
+                <div class="card-body">
+                    <div class="container">
+                        <div>
+                            <div class="float-start">
+                                Volunteering Goals
+                            </div>
+                            <div class="float-end">
+                                <button type="button" class="btn btn-outline-warning rounded-pill" data-toggle="ajax-modal"
+                                        data-target="#AddVGoals" data-url="@Url.Action("AddGoalMission")">
+                                    <i class="bi bi-plus"></i><span class="text-wrap">Add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row mt-4" style=" max-height: 250px; overflow-y: scroll;">
+                            <div class="col-4 fw-bolder mb-2 ">Mission</div>
+                            <div class="col-3 fw-bolder ">Date</div>
+                            <div class="col-2 fw-bolder ">Actoin</div>
+                            <div class="col-3 fw-bolder "></div>
+
+                            @foreach (var item in Model.timeSheets)
+                            {
+                                if (item.Action != null)
+                                {
+                                    <div class="col-4 mb-2">@item.Mission.Title</div>
+                                    <div class="col-3">@Convert.ToDateTime(item.DateVolunteered).ToString("dd/MM/yyyy")</div>
+                                    <div class="col-2">@item.Action</div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn" data-toggle="ajax-modal" data-target="#AddUser" data-url="@Url.Action($"EditGoalMission?id={@item.TimesheetId}")">
+                                            <i class="bi bi-pencil-square text-secondary"></i>
+                                        </button>
+                                        <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteTimeSheet", "TimeSheet" ,new {id = @item.TimesheetId})' } ">
+                                            <i class="bi bi-trash text-danger"></i>
+                                        </button>
+                                    </div>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="PlaceHolderHere"></div>
+
+
+
+

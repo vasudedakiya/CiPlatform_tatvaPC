@@ -1,0 +1,58 @@
+﻿@using CIPlatform.DataModels
+@model Admin
+
+<div class="modal fade" id="AddAdmin">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="modalForm" method="post" action="CreateAdmin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new Admin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-12 mt-3">
+                            <label asp-for="FirstName">First Name</label>
+                            <input type="text" name="FirstName" asp-for="FirstName" class="form-control"
+                                   placeholder="Enter First Name" required="">
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label asp-for="LastName">Last Name</label>
+                            <input type="text" name="LastName" asp-for="LastName" class="form-control"
+                                   placeholder="Enter Last Name" id="" required="">
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label asp-for="Email">Email id</label>
+                            <input type="text" asp-for="Email" name="Email" class="form-control" placeholder="Enter Email" required=""
+                                   id="">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label asp-for="Password">Password</label>
+                            <input type="password" asp-for="Password" name="Password" class="form-control" required="" placeholder="Enter Password"
+                                   id="txtPassword">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="">Confirm Password</label>
+                            <input type="password" name="" class="form-control"
+                                   placeholder="Confirm Password" required="" id="txtConfirmPassword">
+                        </div>
+                        <span class="text-danger">@TempData["ErrorMes"]</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-outline-warning rounded-pill">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

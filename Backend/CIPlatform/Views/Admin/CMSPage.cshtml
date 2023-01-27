@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using CIPlatform.Models
+@model AdminModel
+
+<span class="fs-2 border-bottom border-dark border-2 pb-2 ">Policy</span>
+<hr style="margin-top: 6px;">
+
+<div style="margin-bottom: 70px;">
+    <span class="float-end">
+        <a asp-controller="Admin" asp-action="AddCMSPage" class="btn btn-outline-warning rounded-pill w-100">
+            <i class="bi bi-plus"></i>
+            <span class="text-wrap">Add</span>
+        </a>
+    </span>
+</div>
+
+<table id="datatable" class="table table-borderless">
+    <thead class="table-light text-primary">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.cmsPages)
+        {
+            <tr>
+                <td>@item.CmsPageId</td>
+                <td>@item.Title</td>
+                <td class="text-success fw-bold">
+                    <button class="btn @(@item.Status==1 ?"text-success":"text-danger") fw-bold" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("ChangeCMSStatus", "Admin" ,new {id = @item.CmsPageId})' } ">
+                        @(@item.Status==1 ? "Active":"Inactive")
+                    </button>
+                </td>
+                <td>
+                    <a class="btn" asp-controller="Admin" asp-action="AddCMSPage" asp-route-id=@item.CmsPageId>
+                        <i class="bi bi-pencil-square text-secondary"></i>
+                    </a>
+                </td>
+                <td>
+                    <button class="btn" onclick=" if (confirm('Are you sure?')) { return location.href=' @Url.Action("DeleteCMS", "Admin" ,new {id = @item.CmsPageId})' } ">
+                        <i class="bi bi-trash text-danger"></i>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

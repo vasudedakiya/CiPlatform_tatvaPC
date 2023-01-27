@@ -1,0 +1,54 @@
+﻿@using CIPlatform.Models
+@model TimeSheetModel
+
+<div class="modal fade" id="AddVGoals">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="modalForm" method="post" action="AddGoalMission">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please input below Volunteering Goals</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input asp-for="timeSheet.CreatedAt" hidden />
+                    <input asp-for="timeSheet.Status" hidden />
+                    <input asp-for="timeSheet.TimesheetId" hidden />
+                    <div class="row">
+
+                        <div class="col-12 mt-3">
+                            <label for="">Mission</label>
+                            <select class="form-select" id="ddlCountry" asp-for="@Model.timeSheet.MissionId" required="" asp-items="@Model.missions" aria-label="Default select example" required="">
+                                <option selected>Select Mission</option>
+                            </select>
+                            <span asp-validation-for="@Model.timeSheet.MissionId" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="">Date Volunteered</label>
+                            <input type="date" name="timeSheet.DateVolunteered" asp-for="timeSheet.DateVolunteered" class="form-control" placeholder="Enter Date" id="" required="">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="">Action</label>
+                            <input type="number" name="timeSheet.Action" asp-for="timeSheet.Action" class="form-control" placeholder="Enter Action" required="" id="">
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="">message</label>
+                            <textarea name="timeSheet.Notes" class="form-control" asp-for="timeSheet.Notes" placeholder="Enter your message" id="" cols="30" rows="4"></textarea>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-outline-warning rounded-pill">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
